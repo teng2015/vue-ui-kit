@@ -158,5 +158,25 @@ gulp.task('uglify-js', function () {
         .pipe(gulp.dest('./app/dist/javascripts'));
 });
 
+// inject bundle.min.css and bundle.min.js into index.html
+gulp.task('inject-min', function () {
+    var target = gulp.src('./app/source/index.html');
+    var sources = gulp.src([
+        './app/dist/stylesheets/bundle.min.css',
+        './app/dist/javascripts/bundle.min.js'
+    ], {
+        read: false
+    });
+    return target
+        .pipe(inject(sources, {
+            ignorePath: 'app/dist/',
+            addRootSlash: false,
+            removeTags: true
+        }))
+        .pipe(gulp.dest('./app/dist'));
+})
+
 // run 'minify-css' and 'uglify-js' at the same time
-gulp.task('prod', ['minify-css', 'uglify-js']);
+gulp.task('prod',  function (callback) {
+    runSequence(['minify-css', 'uglify-js'], 'inject-min', callback);
+});
