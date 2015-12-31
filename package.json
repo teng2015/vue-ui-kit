@@ -2,7 +2,10 @@
   "name": "vue-gulp-sass-browserify-boilerplate",
   "version": "2.0.0",
   "description": "A boilerplate using Vue.js, Gulp, Sass and Browserify.",
-  "repository": "https://github.com/panteng/vue-gulp-sass-browserify-boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panteng/vue-gulp-sass-browserify-boilerplate.git"
+  },
   "author": "Chris Pan",
   "license": "MIT",
   "devDependencies": {
