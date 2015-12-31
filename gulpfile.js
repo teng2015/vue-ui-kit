@@ -61,7 +61,8 @@ gulp.task('publish-images', function () {
 // copy stylesheets files from node_modules to ./app/source/stylesheets for later use
 gulp.task('get-css', function () {
     var stylesheets = [
-        './node_modules/normalize.css/normalize.css'
+        './node_modules/normalize.css/normalize.css',
+        './node_modules/font-awesome/font-awesome.css'
     ];
 
     return gulp.src(stylesheets)
