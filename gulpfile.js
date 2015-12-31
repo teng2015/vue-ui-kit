@@ -30,7 +30,8 @@ gulp.task('inject', function () {
     return target
         .pipe(inject(sources, {
             ignorePath: 'app/dist/',
-            addRootSlash: false
+            addRootSlash: false,
+            removeTags: true
         }))
         .pipe(gulp.dest('./app/dist'));
 });
