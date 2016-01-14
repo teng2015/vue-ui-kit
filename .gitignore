@@ -3,3 +3,6 @@ node_modules/
 app/dist/
 app/source/fonts/
 app/source/stylesheets/
+.idea/
+app/source/sass/vendors/_font-awesome.scss
+app/source/sass/vendors/_normalize.scss
