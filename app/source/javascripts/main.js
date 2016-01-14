@@ -11,8 +11,10 @@ Vue.use(VueRourter);
 // register layout components
 
 // register common components
+Vue.component('dropdown', require('./components/dropdown'));
 
 // register directives
+Vue.directive('dropit', require('./directives/dropit'));
 
 // register filters
 
@@ -28,8 +30,12 @@ var App = Vue.extend({
 });
 
 // views
-Vue.component('foo', require('./views/foo'));
-Vue.component('bar', require('./views/bar'));
+Vue.component('home', require('./views/home'));
+Vue.component('dropdownDemo', require('./views/dropdown-demo'));
+Vue.component('percentageFormatterDemo', require('./views/percentageFormatter-demo'));
+Vue.component('switcherDemo', require('./views/switcher-demo'));
+Vue.component('tableDemo', require('./views/table-demo'));
+Vue.component('timeFormatterDemo', require('./views/timeFormatter-demo'));
 
 // router
 var router = new VueRourter({
@@ -37,11 +43,23 @@ var router = new VueRourter({
 });
 
 router.map({
-    '/foo': {
-        component: Vue.component('foo')
+    '/': {
+        component: Vue.component('home')
     },
-    '/bar': {
-        component: Vue.component('bar')
+    '/dropdown': {
+        component: Vue.component('dropdownDemo')
+    },
+    '/percentageFormatter': {
+        component: Vue.component('percentageFormatterDemo')
+    },
+    '/switcher': {
+        component: Vue.component('switcherDemo')
+    },
+    '/table': {
+        component: Vue.component('tableDemo')
+    },
+    '/timeFormatter': {
+        component: Vue.component('timeFormatterDemo')
     }
 });
 

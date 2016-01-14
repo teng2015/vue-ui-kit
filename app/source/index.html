@@ -10,10 +10,13 @@
 
 <body id="app">
     <img src="images/logos.png">
-    <h1>Hello App!</h1>
     <p>
-        <a v-link="{ path: '/foo' }">Go to Foo</a>
-        <a v-link="{ path: '/bar' }">Go to Bar</a>
+        <a v-link="{ path: '/' }">Home</a>
+        <a v-link="{ path: '/dropdown' }">Dropdown</a>
+        <a v-link="{ path: '/percentageFormatter' }">percentageFormat</a>
+        <a v-link="{ path: '/switcher' }">Switcher</a>
+        <a v-link="{ path: '/table' }">Table</a>
+        <a v-link="{ path: '/timeFormatter' }">TimeFormat</a>
     </p>
     <router-view></router-view>
 
