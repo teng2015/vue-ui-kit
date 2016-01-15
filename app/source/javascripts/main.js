@@ -11,6 +11,7 @@ Vue.use(VueRourter);
 // register layout components
 
 // register common components
+Vue.component('c-switcher', require('./components/switcher'));
 
 // register directives
 
@@ -30,13 +31,13 @@ var App = Vue.extend({
 });
 
 // views
-Vue.component('home', require('./views/home'));
-Vue.component('checkboxDemo', require('./views/checkbox-demo'));
-Vue.component('dropdownDemo', require('./views/dropdown-demo'));
-Vue.component('percentageFormatterDemo', require('./views/percentageFormatter-demo'));
-Vue.component('switcherDemo', require('./views/switcher-demo'));
-Vue.component('tableDemo', require('./views/table-demo'));
-Vue.component('timeFormatterDemo', require('./views/timeFormatter-demo'));
+Vue.component('v-home', require('./views/home'));
+Vue.component('v-checkboxDemo', require('./views/checkbox-demo'));
+Vue.component('v-dropdownDemo', require('./views/dropdown-demo'));
+Vue.component('v-percentageFormatterDemo', require('./views/percentageFormatter-demo'));
+Vue.component('v-switcherDemo', require('./views/switcher-demo'));
+Vue.component('v-tableDemo', require('./views/table-demo'));
+Vue.component('v-timeFormatterDemo', require('./views/timeFormatter-demo'));
 
 // router
 var router = new VueRourter({
@@ -45,25 +46,25 @@ var router = new VueRourter({
 
 router.map({
     '/': {
-        component: Vue.component('home')
+        component: Vue.component('v-home')
     },
     '/checkbox': {
-        component: Vue.component('checkboxDemo')
+        component: Vue.component('v-checkboxDemo')
     },
     '/dropdown': {
-        component: Vue.component('dropdownDemo')
+        component: Vue.component('v-dropdownDemo')
     },
     '/percentageFormatter': {
-        component: Vue.component('percentageFormatterDemo')
+        component: Vue.component('v-percentageFormatterDemo')
     },
     '/switcher': {
-        component: Vue.component('switcherDemo')
+        component: Vue.component('v-switcherDemo')
     },
     '/table': {
-        component: Vue.component('tableDemo')
+        component: Vue.component('v-tableDemo')
     },
     '/timeFormatter': {
-        component: Vue.component('timeFormatterDemo')
+        component: Vue.component('v-timeFormatterDemo')
     }
 });
 

@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
+// base
+@import "base/base";
+
 // vendors
 @import "vendors/normalize";
 
 // layouts
 @import "layouts/sidebar";
+
+// components
+@import "components/switcher";
