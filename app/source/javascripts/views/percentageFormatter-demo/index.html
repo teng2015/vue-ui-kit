@@ -1,1 +1,5 @@
-<p>PercentageFormatter Demo</p>
+<p>Input a number, eg: 0.765432.</p>
+<input type="text" v-model="number">
+<span>{{ number | percentageFormatter }}</span>
+<span>{{ number | percentageFormatter '4' }}</span>
+<span>{{ number | percentageFormatter '2' 'true' }}</span>

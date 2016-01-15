@@ -16,6 +16,7 @@ Vue.use(VueRourter);
 
 // register filters
 Vue.filter('timeFormatter', require('./filters/timeFormatter'));
+Vue.filter('percentageFormatter', require('./filters/percentageFormatter'));
 
 // register validations
 
