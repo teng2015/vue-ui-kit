@@ -1,1 +1,4 @@
-<p>TimeFormatter Demo</p>
+<p>Timestamp: {{ time }}</p>
+<p>Formatted Time 1: {{ time | timeFormatter }}</p>
+<p>Formatted Time 2: {{ time | timeFormatter 'YYYY-MM-DD' }}</p>
+<p>Formatted Time 3: {{ time | timeFormatter 'YYYY年MM月DD日 HH时mm分ss秒' }}</p>

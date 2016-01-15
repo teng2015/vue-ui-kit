@@ -11,12 +11,11 @@ Vue.use(VueRourter);
 // register layout components
 
 // register common components
-Vue.component('dropdown', require('./components/dropdown'));
 
 // register directives
-Vue.directive('dropit', require('./directives/dropit'));
 
 // register filters
+Vue.filter('timeFormatter', require('./filters/timeFormatter'));
 
 // register validations
 
@@ -31,6 +30,7 @@ var App = Vue.extend({
 
 // views
 Vue.component('home', require('./views/home'));
+Vue.component('checkboxDemo', require('./views/checkbox-demo'));
 Vue.component('dropdownDemo', require('./views/dropdown-demo'));
 Vue.component('percentageFormatterDemo', require('./views/percentageFormatter-demo'));
 Vue.component('switcherDemo', require('./views/switcher-demo'));
@@ -45,6 +45,9 @@ var router = new VueRourter({
 router.map({
     '/': {
         component: Vue.component('home')
+    },
+    '/checkbox': {
+        component: Vue.component('checkboxDemo')
     },
     '/dropdown': {
         component: Vue.component('dropdownDemo')
