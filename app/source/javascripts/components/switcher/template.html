@@ -1,4 +1,4 @@
-<div class="switcher negative" v-switcher="">
+<div class="switcher" :class="{ positive: isActive, negative: !isActive }" v-on:click="isActive = !isActive">
     <div class="track clearfix">
         <label class="text left">{{ labels[0] }}</label>
         <div class="handler"></div>

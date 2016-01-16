@@ -4,6 +4,10 @@ module.exports = {
         labels: {
             type: Array,
             default: ['','']
+        },
+        isActive: {
+            type: Boolean,
+            required: true
         }
     }
-}
+};
