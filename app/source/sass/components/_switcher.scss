@@ -19,7 +19,7 @@ $trackWidth: 2 * $switcherWidth - $switcherHeight - 2;
     cursor: pointer;
     overflow: hidden;
     user-select: none;
-    &.positive {
+    &.active {
         background-color: $positiveColor;
         border: 1px solid $positiveColor - 15;
         .handler {
@@ -27,7 +27,7 @@ $trackWidth: 2 * $switcherWidth - $switcherHeight - 2;
             margin-left: -$handerOffsetX;
         }
     }
-    &.negative {
+    &.inactive {
         background-color: $negativeColor;
         border: 1px solid $negativeColor - 15;
         .track {
