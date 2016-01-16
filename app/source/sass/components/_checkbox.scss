@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+$checkboxWidth: 30px;
+$checkboxHeight: 30px;
+$bgColor: #fff;
+$borderWidth: 2px;
+$borderColor: #b4b4b4;
+$borderRadius: 0px;
+$checkmarkWidth: 2px;
+$checkmarkSize: 12px;
+$checkmarkOffsetY: 2px;
+$checkmarkColor: #7aa13f;
+
+.checkbox {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border: $borderWidth solid $borderColor;
+  border-radius: $borderRadius;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  &.checked {
+    &:after {
+      content: ' ';
+      display: block;
+      width: $checkmarkSize / 2;
+      height: $checkmarkSize;
+      border: solid $checkmarkColor;
+      border-width: 0 $checkmarkWidth $checkmarkWidth 0;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: - $checkmarkOffsetY;
+      transform: rotate(45deg) translate3d(-50%, -50%, 0);
+      transform-origin: top left;
+    }
+  }
+}

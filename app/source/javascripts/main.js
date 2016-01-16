@@ -11,6 +11,7 @@ Vue.use(VueRourter);
 // register layout components
 
 // register common components
+Vue.component('c-checkbox', require('./components/checkbox'));
 Vue.component('c-switcher', require('./components/switcher'));
 
 // register directives
