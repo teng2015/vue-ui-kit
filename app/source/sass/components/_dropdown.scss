@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+$borderColor: #ddd;
+$borderRadius: 2px;
+$bgColor: #fff;
+
+.dropdown {
+    margin-left: 100px;
+    position: relative;
+    input {
+        outline: none;
+        cursor: pointer;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        list-style: none;
+        border-left: 1px solid $borderColor;
+        border-right: 1px solid $borderColor;
+        border-bottom: 1px solid $borderColor;
+        background-color: $bgColor;
+        z-index: 999;
+        li {
+
+        }
+    }
+}

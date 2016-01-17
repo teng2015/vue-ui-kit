@@ -1,0 +1,6 @@
+<div class="dropdown">
+    <input type="text" @click="showOptions = !showOptions">
+    <ul v-show="showOptions">
+        <li v-for="option in options">{{ option.text }}</li>
+    </ul>
+</div>

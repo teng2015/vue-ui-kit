@@ -12,29 +12,29 @@ $checkmarkOffsetY: 2px;
 $checkmarkColor: #7aa13f;
 
 .checkbox {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-color: #fff;
-  border: $borderWidth solid $borderColor;
-  border-radius: $borderRadius;
-  cursor: pointer;
-  user-select: none;
-  position: relative;
-  &.checked {
-    &:after {
-      content: ' ';
-      display: block;
-      width: $checkmarkSize / 2;
-      height: $checkmarkSize;
-      border: solid $checkmarkColor;
-      border-width: 0 $checkmarkWidth $checkmarkWidth 0;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin-top: - $checkmarkOffsetY;
-      transform: rotate(45deg) translate3d(-50%, -50%, 0);
-      transform-origin: top left;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: $borderWidth solid $borderColor;
+    border-radius: $borderRadius;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    &.checked {
+        &:after {
+            content: ' ';
+            display: block;
+            width: $checkmarkSize / 2;
+            height: $checkmarkSize;
+            border: solid $checkmarkColor;
+            border-width: 0 $checkmarkWidth $checkmarkWidth 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: - $checkmarkOffsetY;
+            transform: rotate(45deg) translate3d(-50%, -50%, 0);
+            transform-origin: top left;
+        }
     }
-  }
 }

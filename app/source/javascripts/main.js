@@ -12,6 +12,7 @@ Vue.use(VueRourter);
 
 // register common components
 Vue.component('c-checkbox', require('./components/checkbox'));
+Vue.component('c-dropdown', require('./components/dropdown'));
 Vue.component('c-switcher', require('./components/switcher'));
 
 // register directives
