@@ -3,7 +3,7 @@ module.exports = {
     props: {
         isChecked: {
             type: Boolean,
-            required: true
+            default: false
         }
     }
 };

@@ -1,28 +1,28 @@
-<table class="data-table">
+<table class="table">
     <thead>
     <tr>
-        <th><input type="checkbox"></th>
+        <th><c-checkbox></c-checkbox></th>
         <th>Name</th>
         <th>Number</th>
         <th>Position</th>
         <th>Birth</th>
     </tr>
     </thead>
+
     <tbody>
     <tr v-for="player in players">
-        <td><input type="checkbox"></td>
+        <td><c-checkbox></c-checkbox></td>
         <td>{{ player.name }}</td>
         <td>{{ player.number }}</td>
         <td>{{ player.position }}</td>
         <td>{{ player.birth }}</td>
     </tr>
     </tbody>
+
     <tfoot>
-        <ul>
-            <li><a class="previous"><i class=""></i></a></li>
-            <li><a>1</a></li>
-            <li><a>2</a></li>
-            <li><a class="next"><i class=""></i></a></li>
-        </ul>
+    <tr>
+        <td></td>
+        <td><c-pagination></c-pagination></td>
+    </tr>
     </tfoot>
 </table>
