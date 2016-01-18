@@ -59,7 +59,8 @@ gulp.task('publish-images', function () {
 gulp.task('get-css', function () {
     var stylesheets = [
         'node_modules/normalize.css/normalize.css',
-        'node_modules/font-awesome/css/font-awesome.css'
+        'node_modules/font-awesome/css/font-awesome.css',
+        'node_modules/remodal/dist/remodal.css'
     ];
 
     return gulp.src(stylesheets)
@@ -116,6 +117,7 @@ gulp.task('watch', function () {
     gulp.watch('app/source/javascripts/**/*', ['browserify']);
     gulp.watch('app/source/fonts/**', ['publish-fonts']);
     gulp.watch('app/source/images/**', ['publish-images']);
+    gulp.watch('other_libs/**/*', ['publish-other-libs']);
 
     gulp.watch('app/dist/index.html').on('change', browserSync.reload);
     gulp.watch('app/dist/javascripts/*').on('change', browserSync.reload);

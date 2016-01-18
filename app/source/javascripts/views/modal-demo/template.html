@@ -1,8 +1,12 @@
-<button v-modal="#example-modal">Click Me</button>
-<div class="modal small" id="example-modal">
-    <button class="btn-close"><i class=""></i></button>
-    <button class="btn-confirm">确 认</button>
-    <button class="btn-cancel">取 消</button>
-    123
+<a data-remodal-target="modal">Call the modal with data-remodal-id="modal"</a>
+
+<div data-remodal-id="modal" v-modal="modal">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1>Remodal</h1>
+    <p>
+        Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+    </p>
+    <br>
+    <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+    <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
 </div>
-<div class="modal-overlay"></div>
