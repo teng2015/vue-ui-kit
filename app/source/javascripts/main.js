@@ -21,6 +21,7 @@ Vue.component('c-switcher', require('./components/switcher'));
 
 // register directives
 Vue.directive('data-table', require('./directives/data-table'));
+Vue.directive('modal', require('./directives/modal'));
 
 // register filters
 Vue.filter('timeFormatter', require('./filters/timeFormatter'));
@@ -50,11 +51,12 @@ Vue.component('v-timePickerDemo', require('./views/timePicker-demo'));
 
 // router
 var router = new VueRourter({
-    history: false
+    history: false,
+    linkActiveClass: 'active'
 });
 
 router.map({
-    '/': {
+    '/home': {
         component: Vue.component('v-home')
     },
     '/checkbox': {
@@ -81,6 +83,10 @@ router.map({
     '/timePicker': {
         component: Vue.component('v-timePickerDemo')
     }
+});
+
+router.redirect({
+    '*': '/home'
 });
 
 router.start(App, '#app');
