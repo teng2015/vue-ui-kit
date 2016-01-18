@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+$unitWidth: 24px;
+$unitHeight: 24px;
+$unitMargin: -1px;
+
+$transition: all 400ms;
+
+$normalBgColor: #fff;
+$normalColor: #333;
+$normalBorderWidth: 1px;
+$normalBorderColor: #ddd;
+$normalFontSize: 12px;
+
+$hoverBgColor: #333;
+$hoverColor: #fff;
+$hoverBorderWidth: 1px;
+$hoverBorderColor: red;
+$hoverFontSize: 12px;
+
+$activeBgColor: #333;
+$activeColor: #fff;
+$activeBorderWidth: 1px;
+$activeBorderColor: red;
+$activeFontSize: 12px;
+
+.pagination {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    li {
+        float: left;
+        width: $unitWidth;
+        height: $unitHeight;
+        margin-right: $unitMargin;
+        background-color: $normalBgColor;
+        color: $normalColor;
+        border: $normalBorderWidth solid $normalBorderColor;
+        cursor: pointer;
+        font-size: $normalFontSize;
+        transition: $transition;
+        position: relative;
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            line-height: $unitHeight - $normalBorderWidth * 2;
+            text-align: center;
+        }
+        &:hover {
+            background-color: $hoverBgColor;
+            color: $hoverColor;
+            border: $hoverBorderWidth solid $hoverBorderColor;
+            font-size: $hoverFontSize;
+            z-index: 1;
+        }
+        &.active {
+            background-color: $activeBgColor;
+            color: $activeColor;
+            border: $activeBorderWidth solid $activeBorderColor;
+            font-size: $activeFontSize;
+            z-index: 1;
+        }
+        &:last-child {
+            margin: 0;
+        }
+    }
+}

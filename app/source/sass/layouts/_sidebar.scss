@@ -1,1 +1,29 @@
 @charset "UTF-8";
+
+$sidebarWidth: 200px;
+$sidebarPosTop: $headerHeight;
+$sidebarBgColor: #333;
+$sidebarZIndex: 0;
+
+.sidebar {
+    width: $sidebarWidth;
+    height: calc(100vh - #{$sidebarPosTop});
+    position: absolute;
+    top: $headerHeight;
+    left: 0;
+    background-color: $sidebarBgColor;
+    nav {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: #fff;
+            li {
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

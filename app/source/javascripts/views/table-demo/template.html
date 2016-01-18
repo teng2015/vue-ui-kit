@@ -1,4 +1,4 @@
-<table class="table">
+<table class="data-table" v-data-table="players">
     <thead>
     <tr>
         <th><c-checkbox></c-checkbox></th>
@@ -10,12 +10,12 @@
     </thead>
 
     <tbody>
-    <tr v-for="player in players">
+    <tr v-for="i in pageList">
         <td><c-checkbox></c-checkbox></td>
-        <td>{{ player.name }}</td>
-        <td>{{ player.number }}</td>
-        <td>{{ player.position }}</td>
-        <td>{{ player.birth }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.number }}</td>
+        <td>{{ i.position }}</td>
+        <td>{{ i.birth }}</td>
     </tr>
     </tbody>
 

@@ -5,12 +5,16 @@
 
 // vendors
 @import "vendors/normalize";
+@import "vendors/font-awesome";
 
 // layouts
+@import "layouts/header";
 @import "layouts/sidebar";
+@import "layouts/content";
 
 // components
 @import "components/checkbox";
 @import "components/dropdown";
+@import "components/pagination";
 @import "components/switcher";
 @import "components/table";

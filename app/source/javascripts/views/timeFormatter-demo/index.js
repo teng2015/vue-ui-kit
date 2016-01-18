@@ -1,6 +1,6 @@
 var moment = require('moment');
 module.exports = {
-    template: require('./index.html'),
+    template: require('./template.html'),
     data: function () {
         return {
             time: ''

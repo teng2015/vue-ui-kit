@@ -1,5 +1,5 @@
 module.exports = {
-    template: require('./index.html'),
+    template: require('./template.html'),
     data: function () {
         return {
             isActive: true

@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+$headerWidth: 100%;
+$headerHeight: 70px;
+$headerBgColor: #000;
+$headerZIndex: 1;
+
+.header {
+    width: $headerWidth;
+    height: $headerHeight;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $headerBgColor;
+    z-index: $headerZIndex;
+}
