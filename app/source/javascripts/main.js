@@ -20,7 +20,8 @@ Vue.component('c-pagination', require('./components/pagination'));
 Vue.component('c-switcher', require('./components/switcher'));
 
 // register directives
-Vue.directive('data-table', require('./directives/data-table'));
+Vue.directive('data-table', require('./directives/dataTable'));
+Vue.directive('datetime-picker', require('./directives/datetimePicker'));
 Vue.directive('modal', require('./directives/modal'));
 
 // register filters
@@ -41,13 +42,13 @@ var App = Vue.extend({
 // views
 Vue.component('v-home', require('./views/home'));
 Vue.component('v-checkboxDemo', require('./views/checkbox-demo'));
+Vue.component('v-datetimePickerDemo', require('./views/datetimePicker-demo'));
 Vue.component('v-dropdownDemo', require('./views/dropdown-demo'));
 Vue.component('v-modalDemo', require('./views/modal-demo'));
 Vue.component('v-percentageFormatterDemo', require('./views/percentageFormatter-demo'));
 Vue.component('v-switcherDemo', require('./views/switcher-demo'));
 Vue.component('v-tableDemo', require('./views/table-demo'));
 Vue.component('v-timeFormatterDemo', require('./views/timeFormatter-demo'));
-Vue.component('v-timePickerDemo', require('./views/timePicker-demo'));
 
 // router
 var router = new VueRourter({
@@ -61,6 +62,9 @@ router.map({
     },
     '/checkbox': {
         component: Vue.component('v-checkboxDemo')
+    },
+    '/datetimePicker': {
+        component: Vue.component('v-datetimePickerDemo')
     },
     '/dropdown': {
         component: Vue.component('v-dropdownDemo')
@@ -79,9 +83,6 @@ router.map({
     },
     '/timeFormatter': {
         component: Vue.component('v-timeFormatterDemo')
-    },
-    '/timePicker': {
-        component: Vue.component('v-timePickerDemo')
     }
 });
 

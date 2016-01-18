@@ -70,6 +70,12 @@ gulp.task('get-css', function () {
         .pipe(gulp.dest('app/source/sass/vendors'));
 });
 
+// copy libs from other_libs to app/dist/lib
+gulp.task('publish-other-libs', function () {
+    return gulp.src('other_libs/**/*')
+        .pipe(gulp.dest('app/dist/libs'));
+});
+
 // compile sass(app/sass) into app/dist/stylesheets/app.css
 gulp.task('compile-sass', function () {
     return gulp.src('app/source/sass/main.scss')
@@ -126,7 +132,7 @@ gulp.task('clean-dist', function(cb) {
 
 // development workflow task
 gulp.task('dev', function (cb) {
-    runSequence(['clean-dist', 'get-css'], ['publish-fonts', 'publish-images', 'compile-sass', 'browserify'], 'inject', 'watch', cb);
+    runSequence(['clean-dist', 'get-css'], ['publish-fonts', 'publish-images', 'publish-other-libs', 'compile-sass', 'browserify'], 'inject', 'watch', cb);
 });
 
 // default task
