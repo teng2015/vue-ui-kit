@@ -2,8 +2,8 @@
  * Boot up the Vue instance and wire up the router.
  */
 
-var Vue = require('vue'),
-    VueRourter = require('vue-router');
+var Vue = require('vue');
+var VueRourter = require('vue-router');
 
 Vue.config.debug = true;
 Vue.use(VueRourter);
@@ -15,12 +15,12 @@ Vue.component('l-content', require('./components/content'));
 
 // register common components
 Vue.component('c-checkbox', require('./components/checkbox'));
+Vue.component('c-data-table', require('./components/dataTable'));
 Vue.component('c-dropdown', require('./components/dropdown'));
 Vue.component('c-pagination', require('./components/pagination'));
 Vue.component('c-switcher', require('./components/switcher'));
 
 // register directives
-Vue.directive('data-table', require('./directives/dataTable'));
 Vue.directive('datetime-picker', require('./directives/datetimePicker'));
 Vue.directive('modal', require('./directives/modal'));
 

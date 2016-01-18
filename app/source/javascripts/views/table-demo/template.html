@@ -1,28 +1,36 @@
-<table class="data-table" v-data-table="players">
-    <thead>
-    <tr>
-        <th><c-checkbox></c-checkbox></th>
-        <th>Name</th>
-        <th>Number</th>
-        <th>Position</th>
-        <th>Birth</th>
-    </tr>
-    </thead>
+<c-data-table inline-template :data="players" :page-length="5">
+    <table class="data-table">
+        <thead>
+        <tr>
+            <th>
+                <c-checkbox></c-checkbox>
+            </th>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Position</th>
+            <th>Birth</th>
+        </tr>
+        </thead>
 
-    <tbody>
-    <tr v-for="i in pageList">
-        <td><c-checkbox></c-checkbox></td>
-        <td>{{ i.name }}</td>
-        <td>{{ i.number }}</td>
-        <td>{{ i.position }}</td>
-        <td>{{ i.birth }}</td>
-    </tr>
-    </tbody>
+        <tbody>
+        <tr v-for="i in thisPageData">
+            <td>
+                <c-checkbox :isChecked="i.checked"></c-checkbox>
+            </td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.number }}</td>
+            <td>{{ i.position }}</td>
+            <td>{{ i.birth }}</td>
+        </tr>
+        </tbody>
 
-    <tfoot>
-    <tr>
-        <td></td>
-        <td><c-pagination></c-pagination></td>
-    </tr>
-    </tfoot>
-</table>
+        <tfoot>
+        <tr>
+            <td></td>
+            <td>
+                <c-pagination></c-pagination>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</c-data-table>

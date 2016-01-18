@@ -1,16 +1,16 @@
 'use strict';
 
-var autoprefixer = require('gulp-autoprefixer'),
-    browserify = require('gulp-browserify'),
-    browserSync = require('browser-sync').create(),
-    del = require('del'),
-    gulp = require('gulp'),
-    inject = require('gulp-inject'),
-    minifycss = require('gulp-minify-css'),
-    rename = require('gulp-rename'),
-    runSequence = require('run-sequence'),
-    sass = require('gulp-sass'),
-    uglify = require('gulp-uglify');
+var autoprefixer = require('gulp-autoprefixer');
+var browserify = require('gulp-browserify');
+var browserSync = require('browser-sync').create();
+var del = require('del');
+var gulp = require('gulp');
+var inject = require('gulp-inject');
+var minifycss = require('gulp-minify-css');
+var rename = require('gulp-rename');
+var runSequence = require('run-sequence');
+var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
 
 
 
