@@ -1,10 +1,5 @@
 @charset "UTF-8";
 
-$headerWidth: 100%;
-$headerHeight: 70px;
-$headerBgColor: #000;
-$headerZIndex: 1;
-
 .header {
     width: $headerWidth;
     height: $headerHeight;
@@ -12,5 +7,14 @@ $headerZIndex: 1;
     top: 0;
     left: 0;
     background-color: $headerBgColor;
+    border-bottom: $headerBorderWidth solid $headerBorderColor;
     z-index: $headerZIndex;
+    .logo {
+        float: left;
+        width: $sidebarWidth;
+        height: $headerHeight - $headerBorderWidth;
+        line-height: $headerHeight - $headerBorderWidth;
+        text-align: center;
+        background-color: #ccc;
+    }
 }

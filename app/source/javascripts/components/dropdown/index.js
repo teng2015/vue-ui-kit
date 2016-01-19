@@ -14,5 +14,9 @@ module.exports = {
         return {
             showOptions: false
         }
+    },
+    created: function () {
+        var vm = this;
+        console.log(vm);
     }
 };

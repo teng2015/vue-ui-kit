@@ -1,12 +1,15 @@
 @charset "UTF-8";
 
-// base
-@import "base/base";
-
 // vendors
 @import "vendors/normalize";
 @import "vendors/font-awesome";
 @import "vendors/remodal";
+
+// helpers
+@import "helpers/variables";
+
+// base
+@import "base/base";
 
 // layouts
 @import "layouts/header";
@@ -14,10 +17,11 @@
 @import "layouts/content";
 
 // components
+@import "components/button";
 @import "components/checkbox";
-@import "components/datetime-picker";
 @import "components/dropdown";
-@import "components/modal";
+@import "components/laydate";
 @import "components/pagination";
+@import "components/remodal";
 @import "components/switcher";
 @import "components/table";

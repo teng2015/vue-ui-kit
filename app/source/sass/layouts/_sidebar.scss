@@ -1,15 +1,10 @@
 @charset "UTF-8";
 
-$sidebarWidth: 200px;
-$sidebarPosTop: $headerHeight;
-$sidebarBgColor: #333;
-$sidebarZIndex: 0;
-
 .sidebar {
     width: $sidebarWidth;
     height: calc(100vh - #{$sidebarPosTop});
     position: absolute;
-    top: $headerHeight;
+    top: $sidebarPosTop;
     left: 0;
     background-color: $sidebarBgColor;
     nav {
@@ -18,15 +13,22 @@ $sidebarZIndex: 0;
             padding: 0;
             list-style: none;
             li {
-                color: #fff;
+                height: 45px;
+                line-height: 45px;
+                color: $navNormalColor;
+                &:hover {
+                    color: $navHoverColor;
+                    background-color: $navHoverBgColor;
+                }
                 &.active {
-                    color: #333;
-                    background-color: #fff;
+                    color: $navActiveColor;
+                    background-color: $navActiveBgColor;
                 }
                 a {
                     display: block;
                     width: 100%;
                     height: 100%;
+                    padding: $navItemPadding;
                     color: inherit;
                     text-decoration: none;
                 }

@@ -1,9 +1,11 @@
 @charset "UTF-8";
 
 .content {
+    width: calc(100% - #{$sidebarWidth});
+    height: calc(100vh - #{$headerHeight});
+    padding: $contentPadding;
     position: absolute;
     top: $headerHeight;
     left: $sidebarWidth;
-    width: calc(100% - #{$sidebarWidth});
-    height: calc(100vh - #{$headerHeight});
+    background-color: $contentBgColor;
 }

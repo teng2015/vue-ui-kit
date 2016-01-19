@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+.btn {
+    display: inline-block;
+    padding: $btnPadding;
+    border: $btnBorder;
+    border-radius: $btnBorderRadius;
+    color: $btnNormalColor;
+    background-color: $btnNormalBgColor;
+    line-height: 1;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-drag: none;
+    cursor: pointer;
+    &:hover {
+        color: $btnHoverColor;
+        background-color: $btnHoverBgColor;
+    }
+    &:active {
+        color: $btnActiveColor;
+        background-color: $btnActiveBgColor;
+    }
+}
+
+.btn-disabled {
+
+}
+
+.btn-primary {
+    color: $btnPrimaryNormalColor;
+    background-color: $btnPrimaryNormalBgColor;
+    &:hover {
+        color: $btnPrimaryHoverColor;
+        background-color: $btnPrimaryHoverBgColor;
+    }
+    &:active {
+        color: $btnPrimaryActiveColor;
+        background-color: $btnPrimaryActiveBgColor;
+    }
+}
+
+.btn-success {
+    color: $btnSuccessNormalColor;
+    background-color: $btnSuccessNormalBgColor;
+    &:hover {
+        color: $btnSuccessHoverColor;
+        background-color: $btnSuccessHoverBgColor;
+    }
+    &:active {
+        color: $btnSuccessActiveColor;
+        background-color: $btnSuccessActiveBgColor;
+    }
+}
+
+.btn-danger {
+    color: $btnDangerNormalColor;
+    background-color: $btnDangerNormalBgColor;
+    &:hover {
+        color: $btnDangerHoverColor;
+        background-color: $btnDangerHoverBgColor;
+    }
+    &:active {
+        color: $btnDangerActiveColor;
+        background-color: $btnDangerActiveBgColor;
+    }
+}

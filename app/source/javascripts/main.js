@@ -21,8 +21,8 @@ Vue.component('c-pagination', require('./components/pagination'));
 Vue.component('c-switcher', require('./components/switcher'));
 
 // register directives
-Vue.directive('datetime-picker', require('./directives/datetimePicker'));
-Vue.directive('modal', require('./directives/modal'));
+Vue.directive('laydate', require('./directives/laydate'));
+Vue.directive('remodal', require('./directives/remodal'));
 
 // register filters
 Vue.filter('timeFormatter', require('./filters/timeFormatter'));
@@ -41,11 +41,12 @@ var App = Vue.extend({
 
 // views
 Vue.component('v-home', require('./views/home'));
+Vue.component('v-buttonDemo', require('./views/button-demo'));
 Vue.component('v-checkboxDemo', require('./views/checkbox-demo'));
-Vue.component('v-datetimePickerDemo', require('./views/datetimePicker-demo'));
 Vue.component('v-dropdownDemo', require('./views/dropdown-demo'));
-Vue.component('v-modalDemo', require('./views/modal-demo'));
+Vue.component('v-laydateDemo', require('./views/laydate-demo'));
 Vue.component('v-percentageFormatterDemo', require('./views/percentageFormatter-demo'));
+Vue.component('v-remodalDemo', require('./views/remodal-demo'));
 Vue.component('v-switcherDemo', require('./views/switcher-demo'));
 Vue.component('v-tableDemo', require('./views/table-demo'));
 Vue.component('v-timeFormatterDemo', require('./views/timeFormatter-demo'));
@@ -57,23 +58,26 @@ var router = new VueRourter({
 });
 
 router.map({
-    '/home': {
+    '/': {
         component: Vue.component('v-home')
+    },
+    '/button': {
+        component: Vue.component('v-buttonDemo')
     },
     '/checkbox': {
         component: Vue.component('v-checkboxDemo')
     },
-    '/datetimePicker': {
-        component: Vue.component('v-datetimePickerDemo')
-    },
     '/dropdown': {
         component: Vue.component('v-dropdownDemo')
     },
-    '/modal': {
-        component: Vue.component('v-modalDemo')
+    '/laydate': {
+        component: Vue.component('v-laydateDemo')
     },
     '/percentageFormatter': {
         component: Vue.component('v-percentageFormatterDemo')
+    },
+    '/remodal': {
+        component: Vue.component('v-remodalDemo')
     },
     '/switcher': {
         component: Vue.component('v-switcherDemo')
@@ -86,8 +90,8 @@ router.map({
     }
 });
 
-router.redirect({
-    '*': '/home'
-});
+//router.redirect({
+//    '*': '/home'
+//});
 
 router.start(App, '#app');

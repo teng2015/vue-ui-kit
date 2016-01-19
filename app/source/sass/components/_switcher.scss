@@ -1,13 +1,5 @@
 @charset "UTF-8";
 
-$switcherWidth: 60px;
-$switcherHeight: 24px;
-$handlerWidth: 16px;
-$handerHeight: 16px;
-$handerOffsetX: 2px;
-$positiveColor: #FD944B;
-$negativeColor: rgba(158,158,158,.4);
-
 $trackWidth: 2 * $switcherWidth - $switcherHeight - 2;
 
 .switcher {
