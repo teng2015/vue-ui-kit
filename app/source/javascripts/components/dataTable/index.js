@@ -19,7 +19,7 @@ module.exports = {
     events: {
         generateDataForThisPage: function () {
             var vm = this;
-            vm.dataForThisPage = vm.data;
+            vm.thisPageData = vm.data;
         }
     }
 };

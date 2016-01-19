@@ -43,12 +43,12 @@ var App = Vue.extend({
 Vue.component('v-home', require('./views/home'));
 Vue.component('v-buttonDemo', require('./views/button-demo'));
 Vue.component('v-checkboxDemo', require('./views/checkbox-demo'));
+Vue.component('v-dataTableDemo', require('./views/dataTable-demo'));
 Vue.component('v-dropdownDemo', require('./views/dropdown-demo'));
 Vue.component('v-laydateDemo', require('./views/laydate-demo'));
 Vue.component('v-percentageFormatterDemo', require('./views/percentageFormatter-demo'));
 Vue.component('v-remodalDemo', require('./views/remodal-demo'));
 Vue.component('v-switcherDemo', require('./views/switcher-demo'));
-Vue.component('v-tableDemo', require('./views/table-demo'));
 Vue.component('v-timeFormatterDemo', require('./views/timeFormatter-demo'));
 
 // router
@@ -67,6 +67,9 @@ router.map({
     '/checkbox': {
         component: Vue.component('v-checkboxDemo')
     },
+    '/dataTable': {
+        component: Vue.component('v-dataTableDemo')
+    },
     '/dropdown': {
         component: Vue.component('v-dropdownDemo')
     },
@@ -81,9 +84,6 @@ router.map({
     },
     '/switcher': {
         component: Vue.component('v-switcherDemo')
-    },
-    '/table': {
-        component: Vue.component('v-tableDemo')
     },
     '/timeFormatter': {
         component: Vue.component('v-timeFormatterDemo')
