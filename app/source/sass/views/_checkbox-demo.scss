@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.checkbox-demo-container {
+    > div {
+        height: 30px;
+        line-height: 30px;
+        .checkbox {
+            position: relative;
+            top: 4px;
+        }
+    }
+}

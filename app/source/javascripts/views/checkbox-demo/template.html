@@ -1,14 +1,18 @@
-<ul>
-    <li>
-        <c-checkbox :is-checked.sync="facebook"></c-checkbox> Facebook
-    </li>
-    <li>
-        <c-checkbox :is-checked.sync="twitter"></c-checkbox> Twitter
-    </li>
-    <li>
-        <c-checkbox :is-checked.sync="linkedin"></c-checkbox> LinkedIn
-    </li>
-    <li>
-        <c-checkbox :is-checked.sync="github"></c-checkbox> Github
-    </li>
-</ul>
+<div class="checkbox-demo-container">
+    <div>
+        <c-checkbox :is-checked.sync="facebook.checked"></c-checkbox> Facebook {{ facebook.checked }}
+    </div>
+
+    <div>
+        <c-checkbox :is-checked.sync="twitter.checked"></c-checkbox> Twitter {{ twitter.checked }}
+    </div>
+
+    <div>
+        <c-checkbox :is-checked.sync="linkedin.checked"></c-checkbox> LinkedIn {{ linkedin.checked }}
+    </div>
+
+    <div>
+        <c-checkbox :is-checked.sync="github.checked"></c-checkbox> Github {{ github.checked }}
+    </div>
+</div>
+

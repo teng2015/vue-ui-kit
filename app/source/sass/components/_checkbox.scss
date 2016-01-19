@@ -2,8 +2,8 @@
 
 .checkbox {
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: $checkboxWidth;
+    height: $checkboxHeight;
     background-color: #fff;
     border: $borderWidth solid $borderColor;
     border-radius: $borderRadius;
