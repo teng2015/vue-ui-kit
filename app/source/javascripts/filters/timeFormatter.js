@@ -1,5 +1,3 @@
-var moment = require('moment');
-
 module.exports = function (timestamp, format) {
     if (!timestamp) return '-';
 

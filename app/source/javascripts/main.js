@@ -1,12 +1,9 @@
+'use strict';
+
 /**
  * Boot up the Vue instance and wire up the router.
  */
-
-var Vue = require('vue');
-var VueRourter = require('vue-router');
-
 Vue.config.debug = true;
-Vue.use(VueRourter);
 
 // register layout components
 Vue.component('l-header', require('./components/header'));
@@ -52,7 +49,7 @@ Vue.component('v-switcherDemo', require('./views/switcher-demo'));
 Vue.component('v-timeFormatterDemo', require('./views/timeFormatter-demo'));
 
 // router
-var router = new VueRourter({
+var router = new VueRouter({
     history: false,
     linkActiveClass: 'active'
 });
@@ -90,8 +87,8 @@ router.map({
     }
 });
 
-//router.redirect({
-//    '*': '/home'
-//});
+router.redirect({
+    '*': '/'
+});
 
 router.start(App, '#app');

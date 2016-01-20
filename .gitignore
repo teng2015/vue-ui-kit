@@ -1,8 +1,7 @@
-node_modules/
-.sass-cache/
+.idea/
+.tmp/
 app/dist/
 app/source/fonts/
 app/source/stylesheets/
-.idea/
-app/source/sass/vendors/_font-awesome.scss
-app/source/sass/vendors/_normalize.scss
+bower_components/
+node_modules/
