@@ -18,7 +18,6 @@ Vue.component('c-pagination', require('./components/pagination'));
 Vue.component('c-switcher', require('./components/switcher'));
 
 // register directives
-Vue.directive('laydate', require('./directives/laydate'));
 Vue.directive('remodal', require('./directives/remodal'));
 
 // register filters
@@ -42,7 +41,6 @@ Vue.component('v-buttonDemo', require('./views/button-demo'));
 Vue.component('v-checkboxDemo', require('./views/checkbox-demo'));
 Vue.component('v-dataTableDemo', require('./views/dataTable-demo'));
 Vue.component('v-dropdownDemo', require('./views/dropdown-demo'));
-Vue.component('v-laydateDemo', require('./views/laydate-demo'));
 Vue.component('v-percentageFormatterDemo', require('./views/percentageFormatter-demo'));
 Vue.component('v-remodalDemo', require('./views/remodal-demo'));
 Vue.component('v-switcherDemo', require('./views/switcher-demo'));
@@ -69,9 +67,6 @@ router.map({
     },
     '/dropdown': {
         component: Vue.component('v-dropdownDemo')
-    },
-    '/laydate': {
-        component: Vue.component('v-laydateDemo')
     },
     '/percentageFormatter': {
         component: Vue.component('v-percentageFormatterDemo')
