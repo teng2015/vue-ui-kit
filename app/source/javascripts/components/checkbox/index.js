@@ -5,5 +5,12 @@ module.exports = {
             type: Boolean,
             default: false
         }
+    },
+    methods: {
+        toggleState: function () {
+            var vm = this;
+            vm.isChecked = !vm.isChecked;
+            console.log('clicked')
+        }
     }
 };
