@@ -1,4 +1,3 @@
-var moment = require('moment');
 module.exports = {
     template: require('./template.html'),
     data: function () {
