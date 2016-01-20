@@ -3,10 +3,12 @@
 $trackWidth: 2 * $switcherWidth - $switcherHeight - 2;
 
 .switcher {
+    display: inline-block;
     width: $switcherWidth;
     height: $switcherHeight;
-    border-radius: $switcherHeight / 2;
     position: relative;
+    vertical-align: middle;
+    border-radius: $switcherHeight / 2;
     transition: all 400ms;
     cursor: pointer;
     overflow: hidden;

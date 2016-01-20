@@ -1,2 +1,13 @@
-<p>Value: {{ isActive }}</p>
-<c-switcher :labels="['ON','OFF']" :is-active.sync="isActive"></c-switcher>
+<div class="switcher-demo-container">
+    <p>Switcher is a bit similar to checkbox.</p>
+
+    <p>Click on a switcher to change its state.</p>
+
+    <div>
+        <c-switcher :labels="['ON','OFF']" :is-active.sync="value1"></c-switcher> {{ value1 }}
+    </div>
+
+    <div>
+        <c-switcher :labels="['ON','OFF']" :is-active.sync="value2"></c-switcher> {{ value2 }}
+    </div>
+</div>

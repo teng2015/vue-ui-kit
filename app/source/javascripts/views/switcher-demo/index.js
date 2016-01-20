@@ -2,7 +2,8 @@ module.exports = {
     template: require('./template.html'),
     data: function () {
         return {
-            isActive: true
+            value1: true,
+            value2: false
         }
     }
 };
