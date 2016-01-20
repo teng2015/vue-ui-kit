@@ -2,7 +2,7 @@ module.exports = {
     template: require('./template.html'),
     data: function () {
         return {
-            number: 0.765432
+            number: 0.76
         };
     }
 };
