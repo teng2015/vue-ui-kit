@@ -3,14 +3,18 @@
 var autoprefixer = require('gulp-autoprefixer');
 var browserify = require('gulp-browserify');
 var browserSync = require('browser-sync').create();
+var cache = require('gulp-cache');
 var concat = require('gulp-concat');
 var del = require('del');
 var gulp = require('gulp');
+var imagemin = require('gulp-imagemin');
 var inject = require('gulp-inject');
 var minifycss = require('gulp-minify-css');
+var notify = require('gulp-notify');
 var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
+var plumber = require('gulp-plumber');
 var uglify = require('gulp-uglify');
 
 
@@ -52,7 +56,12 @@ gulp.task('publish-fonts', function () {
 
 // optimize images under app/source/images and save the results to app/dist/images
 gulp.task('publish-images', function () {
-    return gulp.src('app/source/images/*')
+    return gulp.src('app/source/images/**/*')
+        .pipe(cache(imagemin({
+            optimizationLevel: 3,
+            progressive: true,
+            interlaced: true
+        })))
         .pipe(gulp.dest('app/dist/images'));
 });
 
@@ -91,9 +100,12 @@ gulp.task('publish-js', function () {
 // compile sass(app/sass) into .tmp/stylesheets/app.tmp.css
 gulp.task('compile-sass', function () {
     return gulp.src('app/source/sass/main.scss')
+        .pipe(plumber({
+            errorHandler: errorAlert
+        }))
         .pipe(sass({
             outputStyle: 'expanded'
-        }).on('error', sass.logError))
+        }))
         .pipe(autoprefixer())
         .pipe(rename('bundle.tmp.css'))
         .pipe(gulp.dest('.tmp/stylesheets'));
@@ -102,14 +114,13 @@ gulp.task('compile-sass', function () {
 // use browserify to bundle CommonJS modules into .tmp/javascript/bundle.tmp.js
 gulp.task('browserify', function () {
     return gulp.src('app/source/javascripts/main.js')
+        .pipe(plumber({
+            errorHandler: errorAlert
+        }))
         .pipe(browserify({
             transform: ['partialify'],
             debug: true
         }))
-        .on('error', function (err) {
-            console.log(err.message);
-            this.end();
-        })
         .pipe(rename('bundle.tmp.js'))
         .pipe(gulp.dest('.tmp/javascripts'));
 });
@@ -151,6 +162,7 @@ gulp.task('dev', function (cb) {
 
 // default task
 gulp.task('default', ['dev']);
+
 
 
 /* ===============================================
@@ -208,3 +220,17 @@ gulp.task('del-bundle', function (cb) {
 gulp.task('prod',  function (cb) {
     runSequence(['minify-css', 'uglify-js'], ['inject-min', 'del-bundle'], cb);
 });
+
+
+
+
+// functions
+function errorAlert(error){
+    notify.onError({
+        title: "Error in plugin '" + error.plugin + "'",
+        message: 'Check your terminal',
+        sound: 'Sosumi'
+    })(error); //Error Notification
+    console.log(error.toString());  // prints error to console
+    this.emit('end');   // end function
+};
