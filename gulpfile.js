@@ -23,23 +23,32 @@ var uglify = require('gulp-uglify');
 =============== For Development ==================
 ================================================*/
 
-// inject app/dist/stylesheets/bundle.css and app/dist/javascripts/bundle.js into app/source/index.html
-// and save as app/dist/index.html
-gulp.task('inject', function () {
-    var target = gulp.src('app/source/index.html');
-    var sources = gulp.src([
-        'app/dist/stylesheets/bundle.css',
-        'app/dist/javascripts/bundle.js'
-    ], {
-        read: false
-    });
-    return target
-        .pipe(inject(sources, {
-            ignorePath: 'app/dist/',
-            addRootSlash: false,
-            removeTags: true
+// compile sass(app/sass) into .tmp/stylesheets/app.tmp.css
+gulp.task('compile-sass', function () {
+    return gulp.src('app/source/sass/main.scss')
+        .pipe(plumber({
+            errorHandler: errorAlert
         }))
-        .pipe(gulp.dest('app/dist'));
+        .pipe(sass({
+            outputStyle: 'expanded'
+        }))
+        .pipe(autoprefixer())
+        .pipe(rename('bundle.tmp.css'))
+        .pipe(gulp.dest('.tmp/stylesheets'));
+});
+
+// use browserify to bundle CommonJS modules into .tmp/javascript/bundle.tmp.js
+gulp.task('browserify', function () {
+    return gulp.src('app/source/javascripts/main.js')
+        .pipe(plumber({
+            errorHandler: errorAlert
+        }))
+        .pipe(browserify({
+            transform: ['partialify'],
+            debug: true
+        }))
+        .pipe(rename('bundle.tmp.js'))
+        .pipe(gulp.dest('.tmp/javascripts'));
 });
 
 // copy fonts from bower_components and app/source/fonts to app/dist/fonts
@@ -97,32 +106,23 @@ gulp.task('publish-js', function () {
         .pipe(gulp.dest('app/dist/javascripts'));
 });
 
-// compile sass(app/sass) into .tmp/stylesheets/app.tmp.css
-gulp.task('compile-sass', function () {
-    return gulp.src('app/source/sass/main.scss')
-        .pipe(plumber({
-            errorHandler: errorAlert
+// inject app/dist/stylesheets/bundle.css and app/dist/javascripts/bundle.js into app/source/index.html
+// and save as app/dist/index.html
+gulp.task('inject', function () {
+    var target = gulp.src('app/source/index.html');
+    var sources = gulp.src([
+        'app/dist/stylesheets/bundle.css',
+        'app/dist/javascripts/bundle.js'
+    ], {
+        read: false
+    });
+    return target
+        .pipe(inject(sources, {
+            ignorePath: 'app/dist/',
+            addRootSlash: false,
+            removeTags: true
         }))
-        .pipe(sass({
-            outputStyle: 'expanded'
-        }))
-        .pipe(autoprefixer())
-        .pipe(rename('bundle.tmp.css'))
-        .pipe(gulp.dest('.tmp/stylesheets'));
-});
-
-// use browserify to bundle CommonJS modules into .tmp/javascript/bundle.tmp.js
-gulp.task('browserify', function () {
-    return gulp.src('app/source/javascripts/main.js')
-        .pipe(plumber({
-            errorHandler: errorAlert
-        }))
-        .pipe(browserify({
-            transform: ['partialify'],
-            debug: true
-        }))
-        .pipe(rename('bundle.tmp.js'))
-        .pipe(gulp.dest('.tmp/javascripts'));
+        .pipe(gulp.dest('app/dist'));
 });
 
 // watch files and run corresponding task(s) once files are added, removed or edited.
