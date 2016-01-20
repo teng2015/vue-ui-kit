@@ -50,16 +50,10 @@ gulp.task('publish-fonts', function () {
 });
 
 
-// copy images from app/source/images to app/dist/images
+// optimize images under app/source/images and save the results to app/dist/images
 gulp.task('publish-images', function () {
     return gulp.src('app/source/images/*')
         .pipe(gulp.dest('app/dist/images'));
-});
-
-// copy libs from other_libs to app/dist/lib
-gulp.task('publish-other-libs', function () {
-    return gulp.src('other_libs/**/*')
-        .pipe(gulp.dest('app/dist/libs'));
 });
 
 // concat all stylesheets below and save as app/dist/stylesheets/bundle.css
@@ -133,7 +127,6 @@ gulp.task('watch', function () {
     gulp.watch('app/source/javascripts/**/*', ['browserify']);
     gulp.watch('app/source/fonts/**/*', ['publish-fonts']);
     gulp.watch('app/source/images/**/*', ['publish-images']);
-    gulp.watch('other_libs/**/*', ['publish-other-libs']);
     gulp.watch('.tmp/stylesheets/**/*', ['publish-css']);
     gulp.watch('.tmp/javascripts/**/*', ['publish-js']);
 
@@ -153,7 +146,7 @@ gulp.task('clean', function(cb) {
 
 // development workflow task
 gulp.task('dev', function (cb) {
-    runSequence(['clean'], ['compile-sass', 'browserify'], ['publish-fonts', 'publish-images', 'publish-other-libs', 'publish-css', 'publish-js'], 'inject', 'watch', cb);
+    runSequence(['clean'], ['compile-sass', 'browserify'], ['publish-fonts', 'publish-images', 'publish-css', 'publish-js'], 'inject', 'watch', cb);
 });
 
 // default task
