@@ -10,7 +10,6 @@ module.exports = {
         toggleState: function () {
             var vm = this;
             vm.isChecked = !vm.isChecked;
-            console.log('clicked')
         }
     }
 };
