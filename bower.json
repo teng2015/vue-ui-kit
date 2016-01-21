@@ -10,6 +10,6 @@
     "vue": "~1.0.15",
     "vue-router": "~0.7.9",
     "pikaday": "~1.4.0",
-    "gilbitron/Dropit": "~1.1.1"
+    "gilbitron/Dropit": "https://github.com/gilbitron/Dropit.git#1.1.1"
   }
 }
