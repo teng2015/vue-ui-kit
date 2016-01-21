@@ -4,18 +4,22 @@ module.exports = {
         return {
             teams: [
                 {
-                    text: 'Los Angeles Lakers',
+                    label: 'Los Angeles Lakers',
                     value: 'LAL'
                 },
                 {
-                    text: 'Miami Heat',
-                    value: 'MH'
+                    label: 'Los Angeles Clippers',
+                    value: 'LAC'
                 },
                 {
-                    text: 'Oklahoma City Thunder',
+                    label: 'Oklahoma City Thunder',
                     value: 'OCT'
                 }
-            ]
+            ],
+            selectedTeam: {
+                label: 'Los Angeles Clippers',
+                value: 'LAC'
+            }
         };
     }
 };
