@@ -81,7 +81,7 @@ gulp.task('publish-css', function () {
         'bower_components/font-awesome/css/font-awesome.css',
         'bower_components/remodal/dist/remodal.css',
         'bower_components/pikaday/css/pikaday.css',
-        'bower_components/gilbitron/Dropit/dropit.css',
+        'bower_components/gilbitron-dropit/dropit.css',
 
         '.tmp/stylesheets/bundle.tmp.css'
     ];
@@ -99,7 +99,7 @@ gulp.task('publish-js', function () {
         'bower_components/underscore/underscore.js',
         'bower_components/remodal/dist/remodal.js',
         'bower_components/pikaday/pikaday.js',
-        'bower_components/gilbitron/Dropit/dropit.js',
+        'bower_components/gilbitron-dropit/dropit.js',
         'bower_components/vue/dist/vue.js',
         'bower_components/vue-router/dist/vue-router.js',
 
