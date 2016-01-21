@@ -26,7 +26,11 @@
 }
 
 .btn-disabled {
-
+    cursor: not-allowed !important;
+    &:hover {
+        color: $btnNormalColor !important;
+        background-color: $btnNormalBgColor !important;
+    }
 }
 
 .btn-primary {
