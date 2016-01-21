@@ -1,11 +1,11 @@
 @charset "utf-8";
 
-// styles of the modal dialog
 .remodal {
+    position: relative;
     text-align: left;
     background-color: #fff;
-    position: relative;
     transform: translate3d(0, 0, 0);
+    padding: 30px;
     &.remodal-is-opening {
         animation-fill-mode: forwards;
         animation: remodal-opening-keyframes 0.3s;
@@ -14,81 +14,56 @@
         animation-fill-mode: forwards;
         animation: remodal-closing-keyframes 0.3s;
     }
-    .remodal-close {
-        width: 30px;
-        height: 30px;
-        border: none;
-        border-radius: 50%;
-        background-color: green;
-        color: #fff;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 1;
-        i {
-            font-size: 14px;
+    .remodal-header {
+        .remodal-title {
+            margin: 0;
         }
-        &:hover {
-            background-color: green - 30;;
+        .remodal-close {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background-color: #cA3c3c;
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1;
+            i {
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                font-size: 14px;
+            }
+            &:hover {
+                background-color: #9c2f2f;
+            }
+            &:active {
+                background-color: #732424;
+            }
         }
     }
+
     .remodal-content {
         position: relative;
-        padding: 50px 30px 30px 30px;
-        .page-header {
-            margin-bottom: 20px;
-        }
-        .text {
-            font-size: 12px;
-            color: #37474F;
-            word-wrap: break-word;
-        }
     }
 }
 
-// styles for different modal size
-.remodal {
-    &.small {
-        width: 400px;
-    }
-    &.medium {
-        width: 700px;
-    }
-    &.large {
-        width: 1000px;
-    }
-    &.auto {
-        width: auto;
-        min-width: 400px;
-        max-width: 1000px;
-    }
-}
-
-// styles of the overlay
 .remodal-overlay {
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.4);
     &.remodal-is-opening {
-        animation-fill-mode: forwards;
         animation: remodal-overlay-opening-keyframes 0.3s;
     }
     &.remodal-is-closing {
-        animation-fill-mode: forwards;
         animation: remodal-overlay-closing-keyframes 0.3s;
     }
 }
 
-// styles of the wrapper
-.remodal-wrapper {
-    padding: 10px 10px 0;
-}
-
-// vertical align of the modal dialog
 .remodal,
 .remodal-wrapper:after {
     vertical-align: middle;
 }
 
-// keyframes
 @keyframes remodal-opening-keyframes {
     from {
         transform: translateY(10%);

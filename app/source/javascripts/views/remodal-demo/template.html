@@ -1,12 +1,19 @@
-<a data-remodal-target="remodal-demo-1">Click Me</a>
+<a class="btn" data-remodal-target="remodal-demo-1">Click Me</a>
 
 <div data-remodal-id="remodal-demo-1" v-remodal>
-    <button data-remodal-action="close" class="remodal-close"></button>
-    <h1>Remodal</h1>
-    <p>
-        Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
-    </p>
-    <br>
-    <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-    <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+    <header class="remodal-header">
+        <h1 class="remodal-title">Remodal</h1>
+        <button data-remodal-action="close" class="remodal-close"><i class="fa fa-close"></i></button>
+    </header>
+
+    <main class="remodal-content">
+        <p>
+            Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin <br> with declarative configuration and hash tracking.
+        </p>
+    </main>
+
+    <footer class="remodal-footer">
+        <button data-remodal-action="confirm" class="remodal-confirm btn btn-success">OK</button>
+        <button data-remodal-action="cancel" class="remodal-cancel btn">Cancel</button>
+    </footer>
 </div>
