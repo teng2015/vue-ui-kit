@@ -96,6 +96,44 @@ $checkmarkColor: #1f8dd6;
 
 
 // =======================================
+// ============= dataTable ===============
+// =======================================
+$dataTableBorderColor: #ddd;
+$dataTableThFontWeight: bold;
+$dataTableCellPadding: 0 10px;
+$dataTableCellLineHeight: 36px;
+
+$dataTableTheadBgColor: #e9e9e9;
+$dataTableTrHoverBgColor: #f3f9f9;
+
+$dataTableOddTrBgColor: #fff;
+$dataTableEvenTrBgColor: #f9f9f9;
+
+
+
+// =======================================
+// =============== dropit ================
+// =======================================
+$dropitBorderWidth: 1px;
+$dropitBorderColor: #ddd;
+
+$dropitTriggerHeight: 36px;
+$dropitTriggerBgColor: #fff;
+
+$dropitMenuMaxHeight: 240px;
+$dropitMenuBgColor: #fff;
+
+$dropitOptionLineHeight: 24px;
+$dropitOptionHorizontalPadding: 10px;
+$dropitOptionNormalColor: inherit;
+$dropitOptionNormalBgColor: #fff;
+$dropitOptionNormalColor: inherit;
+$dropitOptionHoverColor: #1f8dd6;
+$dropitOptionHoverBgColor: #f3f9f9;
+
+
+
+// =======================================
 // =========== pagination ================
 // =======================================
 $unitWidth: 24px;
