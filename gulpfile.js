@@ -25,7 +25,7 @@ var uglify = require('gulp-uglify');
 
 // compile sass(app/sass) into .tmp/stylesheets/app.tmp.css
 gulp.task('compile-sass', function () {
-    return gulp.src('app/source/sass/main.scss')
+    return gulp.src('app/src/sass/main.scss')
         .pipe(plumber({
             errorHandler: errorAlert
         }))
@@ -39,7 +39,7 @@ gulp.task('compile-sass', function () {
 
 // use browserify to bundle CommonJS modules into .tmp/javascript/bundle.tmp.js
 gulp.task('browserify', function () {
-    return gulp.src('app/source/javascripts/main.js')
+    return gulp.src('app/src/javascripts/main.js')
         .pipe(plumber({
             errorHandler: errorAlert
         }))
@@ -51,11 +51,11 @@ gulp.task('browserify', function () {
         .pipe(gulp.dest('.tmp/javascripts'));
 });
 
-// copy fonts from bower_components and app/source/fonts to app/dist/fonts
+// copy fonts from bower_components and app/src/fonts to app/dist/fonts
 gulp.task('publish-fonts', function () {
     var fonts = [
         'bower_components/font-awesome/fonts/*',
-        'app/source/fonts/*'
+        'app/src/fonts/*'
     ];
 
     return gulp.src(fonts)
@@ -63,9 +63,9 @@ gulp.task('publish-fonts', function () {
 });
 
 
-// optimize images under app/source/images and save the results to app/dist/images
+// optimize images under app/src/images and save the results to app/dist/images
 gulp.task('publish-images', function () {
-    return gulp.src('app/source/images/**/*')
+    return gulp.src('app/src/images/**/*')
         .pipe(cache(imagemin({
             optimizationLevel: 3,
             progressive: true,
@@ -110,18 +110,18 @@ gulp.task('publish-js', function () {
         .pipe(gulp.dest('app/dist/javascripts'));
 });
 
-// inject app/dist/stylesheets/bundle.css and app/dist/javascripts/bundle.js into app/source/index.html
+// inject app/dist/stylesheets/bundle.css and app/dist/javascripts/bundle.js into app/src/index.html
 // and save as app/dist/index.html
 gulp.task('inject', function () {
-    var target = gulp.src('app/source/index.html');
-    var sources = gulp.src([
+    var target = gulp.src('app/src/index.html');
+    var assets = gulp.src([
         'app/dist/stylesheets/bundle.css',
         'app/dist/javascripts/bundle.js'
     ], {
         read: false
     });
     return target
-        .pipe(inject(sources, {
+        .pipe(inject(assets, {
             ignorePath: 'app/dist/',
             addRootSlash: false,
             removeTags: true
@@ -137,11 +137,11 @@ gulp.task('watch', function () {
         }
     });
 
-    gulp.watch('app/source/index.html', ['inject']);
-    gulp.watch('app/source/sass/**/*.scss', ['compile-sass']);
-    gulp.watch('app/source/javascripts/**/*', ['browserify']);
-    gulp.watch('app/source/fonts/**/*', ['publish-fonts']);
-    gulp.watch('app/source/images/**/*', ['publish-images']);
+    gulp.watch('app/src/index.html', ['inject']);
+    gulp.watch('app/src/sass/**/*.scss', ['compile-sass']);
+    gulp.watch('app/src/javascripts/**/*', ['browserify']);
+    gulp.watch('app/src/fonts/**/*', ['publish-fonts']);
+    gulp.watch('app/src/images/**/*', ['publish-images']);
     gulp.watch('.tmp/stylesheets/**/*', ['publish-css']);
     gulp.watch('.tmp/javascripts/**/*', ['publish-js']);
 
@@ -152,16 +152,21 @@ gulp.task('watch', function () {
 });
 
 // delete files under app/dist
-gulp.task('clean', function(cb) {
+gulp.task('clean-files', function(cb) {
     return del([
         '.tmp',
         'app/dist/**/*'
     ], cb);
 });
 
+// delete cache
+gulp.task('clean-cache', function (cb) {
+    return cache.clearAll(cb)
+});
+
 // development workflow task
 gulp.task('dev', function (cb) {
-    runSequence(['clean'], ['compile-sass', 'browserify'], ['publish-fonts', 'publish-images', 'publish-css', 'publish-js'], 'inject', 'watch', cb);
+    runSequence(['clean-files', 'clean-cache'], ['compile-sass', 'browserify'], ['publish-fonts', 'publish-images', 'publish-css', 'publish-js'], 'inject', 'watch', cb);
 });
 
 // default task
@@ -193,18 +198,18 @@ gulp.task('uglify-js', function () {
         .pipe(gulp.dest('app/dist/javascripts'));
 });
 
-// inject app/dist/stylesheets/bundle.min.css and app/dist/javascripts/bundle.min.js into app/source/index.html
+// inject app/dist/stylesheets/bundle.min.css and app/dist/javascripts/bundle.min.js into app/src/index.html
 // and save as app/dist/index.html
 gulp.task('inject-min', function () {
-    var target = gulp.src('app/source/index.html');
-    var sources = gulp.src([
+    var target = gulp.src('app/src/index.html');
+    var assets = gulp.src([
         'app/dist/stylesheets/bundle.min.css',
         'app/dist/javascripts/bundle.min.js'
     ], {
         read: false
     });
     return target
-        .pipe(inject(sources, {
+        .pipe(inject(assets, {
             ignorePath: 'app/dist/',
             addRootSlash: false,
             removeTags: true
