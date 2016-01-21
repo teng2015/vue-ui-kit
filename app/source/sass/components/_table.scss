@@ -1,12 +1,15 @@
 @charset "UTF-8";
 
-.data-table {
+.table {
     width: 100%;
     tr {
         th {
             text-align: left;
             font-weight: $dataTableThFontWeight;
             background-color: $dataTableTheadBgColor;
+            &.sortable {
+                cursor: pointer;
+            }
         }
         td {
 

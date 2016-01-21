@@ -96,7 +96,7 @@ gulp.task('publish-js', function () {
     var javascripts = [
         'bower_components/jquery/dist/jquery.js',
         'bower_components/moment/moment.js',
-        'bower_components/underscore.js',
+        'bower_components/underscore/underscore.js',
         'bower_components/remodal/dist/remodal.js',
         'bower_components/pikaday/pikaday.js',
         'bower_components/gilbitron/Dropit/dropit.js',

@@ -12,7 +12,7 @@ Vue.component('l-content', require('./components/content'));
 
 // register common components
 Vue.component('c-checkbox', require('./components/checkbox'));
-Vue.component('c-data-table', require('./components/dataTable'));
+Vue.component('c-table', require('./components/table'));
 Vue.component('c-dropit', require('./components/dropit'));
 Vue.component('c-pagination', require('./components/pagination'));
 Vue.component('c-switcher', require('./components/switcher'));
@@ -41,7 +41,7 @@ var App = Vue.extend({
 Vue.component('v-home', require('./views/home'));
 Vue.component('v-buttonDemo', require('./views/button-demo'));
 Vue.component('v-checkboxDemo', require('./views/checkbox-demo'));
-Vue.component('v-dataTableDemo', require('./views/dataTable-demo'));
+Vue.component('v-tableDemo', require('./views/table-demo'));
 Vue.component('v-dropitDemo', require('./views/dropit-demo'));
 Vue.component('v-percentageFormatterDemo', require('./views/percentageFormatter-demo'));
 Vue.component('v-pikadayDemo', require('./views/pikaday-demo'));
@@ -65,8 +65,8 @@ router.map({
     '/checkbox': {
         component: Vue.component('v-checkboxDemo')
     },
-    '/dataTable': {
-        component: Vue.component('v-dataTableDemo')
+    '/table': {
+        component: Vue.component('v-tableDemo')
     },
     '/dropit': {
         component: Vue.component('v-dropitDemo')

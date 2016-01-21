@@ -1,0 +1,27 @@
+<c-table inline-template :data="players">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                <c-checkbox :is-checked.sync="allChecked"></c-checkbox>
+            </th>
+            <th class="sortable" @click="sortBy('name')">Name</th>
+            <th class="sortable" @click="sortBy('number')">Number</th>
+            <th class="sortable" @click="sortBy('position')">Position</th>
+            <th class="sortable" @click="sortBy('birth')">Birth</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr v-for="i in thisPageData">
+            <td>
+                <c-checkbox :is-checked.sync="i.checked"></c-checkbox>
+            </td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.number }}</td>
+            <td>{{ i.position }}</td>
+            <td>{{ i.birth }}</td>
+        </tr>
+        </tbody>
+    </table>
+</c-table>
