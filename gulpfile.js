@@ -14,42 +14,17 @@ var notify = require('gulp-notify');
 var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
+var streamqueue = require('streamqueue');
 var plumber = require('gulp-plumber');
 var uglify = require('gulp-uglify');
+
+var vendors = require('./config/vendors');
 
 
 
 /* ===============================================
 =============== For Development ==================
 ================================================*/
-
-// compile sass(app/sass) into .tmp/stylesheets/app.tmp.css
-gulp.task('compile-sass', function () {
-    return gulp.src('app/src/sass/main.scss')
-        .pipe(plumber({
-            errorHandler: errorAlert
-        }))
-        .pipe(sass({
-            outputStyle: 'expanded'
-        }))
-        .pipe(autoprefixer())
-        .pipe(rename('bundle.tmp.css'))
-        .pipe(gulp.dest('.tmp/stylesheets'));
-});
-
-// use browserify to bundle CommonJS modules into .tmp/javascript/bundle.tmp.js
-gulp.task('browserify', function () {
-    return gulp.src('app/src/javascripts/main.js')
-        .pipe(plumber({
-            errorHandler: errorAlert
-        }))
-        .pipe(browserify({
-            transform: ['partialify'],
-            debug: true
-        }))
-        .pipe(rename('bundle.tmp.js'))
-        .pipe(gulp.dest('.tmp/javascripts'));
-});
 
 // copy fonts from bower_components and app/src/fonts to app/dist/fonts
 gulp.task('publish-fonts', function () {
@@ -74,40 +49,58 @@ gulp.task('publish-images', function () {
         .pipe(gulp.dest('app/dist/images'));
 });
 
-// concat all stylesheets below and save as app/dist/stylesheets/bundle.css
+// compile sass, concat stylesheets in the right order,
+// and save as app/dist/stylesheets/bundle.css
 gulp.task('publish-css', function () {
-    var stylesheets = [
-        'bower_components/normalize-css/normalize.css',
-        'bower_components/font-awesome/css/font-awesome.css',
-        'bower_components/remodal/dist/remodal.css',
-        'bower_components/pikaday/css/pikaday.css',
-        'bower_components/gilbitron-dropit/dropit.css',
+    var cssVendors = vendors.stylesheets;
+    var stream = streamqueue({ objectMode: true });
 
-        '.tmp/stylesheets/bundle.tmp.css'
-    ];
-    return gulp.src(stylesheets)
+    stream.queue(
+        gulp.src(cssVendors)
+    );
+
+    stream.queue(
+        gulp.src('app/src/sass/main.scss')
+            .pipe(plumber({
+                errorHandler: errorAlert
+            }))
+            .pipe(sass({
+                outputStyle: 'expanded'
+            }))
+            .pipe(autoprefixer())
+    );
+
+    return stream.done()
         .pipe(concat('bundle.css'))
         .pipe(gulp.dest('app/dist/stylesheets'))
         .pipe(browserSync.stream());
 });
 
-// concat all javascripts below and save as app/dist/javascripts/bundle.js
+// bundle CommonJS modules under app/src/javascripts, concat javascripts in the right order,
+// and save as app/dist/javascripts/bundle.js
 gulp.task('publish-js', function () {
-    var javascripts = [
-        'bower_components/jquery/dist/jquery.js',
-        'bower_components/moment/moment.js',
-        'bower_components/underscore/underscore.js',
-        'bower_components/remodal/dist/remodal.js',
-        'bower_components/pikaday/pikaday.js',
-        'bower_components/gilbitron-dropit/dropit.js',
-        'bower_components/vue/dist/vue.js',
-        'bower_components/vue-router/dist/vue-router.js',
+    var jsVendors = vendors.javascripts;
+    var stream = streamqueue({ objectMode: true });
 
-        '.tmp/javascripts/bundle.tmp.js'
-    ];
-    return gulp.src(javascripts)
+    stream.queue(
+        gulp.src(jsVendors)
+    );
+
+    stream.queue(
+        gulp.src('app/src/javascripts/main.js')
+            .pipe(plumber({
+                errorHandler: errorAlert
+            }))
+            .pipe(browserify({
+                transform: ['partialify'],
+                debug: true
+            }))
+    );
+
+    return stream.done()
         .pipe(concat('bundle.js'))
-        .pipe(gulp.dest('app/dist/javascripts'));
+        .pipe(gulp.dest('app/dist/javascripts'))
+        .pipe(browserSync.stream());
 });
 
 // inject app/dist/stylesheets/bundle.css and app/dist/javascripts/bundle.js into app/src/index.html
@@ -138,12 +131,10 @@ gulp.task('watch', function () {
     });
 
     gulp.watch('app/src/index.html', ['inject']);
-    gulp.watch('app/src/sass/**/*.scss', ['compile-sass']);
-    gulp.watch('app/src/javascripts/**/*', ['browserify']);
+    gulp.watch('app/src/sass/**/*.scss', ['publish-css']);
+    gulp.watch('app/src/javascripts/**/*', ['publish-js']);
     gulp.watch('app/src/fonts/**/*', ['publish-fonts']);
     gulp.watch('app/src/images/**/*', ['publish-images']);
-    gulp.watch('.tmp/stylesheets/**/*', ['publish-css']);
-    gulp.watch('.tmp/javascripts/**/*', ['publish-js']);
 
     gulp.watch('app/dist/index.html').on('change', browserSync.reload);
     gulp.watch('app/dist/javascripts/*').on('change', browserSync.reload);
@@ -166,7 +157,7 @@ gulp.task('clean-cache', function (cb) {
 
 // development workflow task
 gulp.task('dev', function (cb) {
-    runSequence(['clean-files', 'clean-cache'], ['compile-sass', 'browserify'], ['publish-fonts', 'publish-images', 'publish-css', 'publish-js'], 'inject', 'watch', cb);
+    runSequence(['clean-files', 'clean-cache'], ['publish-fonts', 'publish-images', 'publish-css', 'publish-js'], 'inject', 'watch', cb);
 });
 
 // default task
@@ -233,7 +224,11 @@ gulp.task('prod',  function (cb) {
 
 
 
-// functions
+/* ===============================================
+ ================== Functions ====================
+ ================================================*/
+
+// handle errors
 function errorAlert(error){
     notify.onError({
         title: "Error in plugin '" + error.plugin + "'",
