@@ -8,9 +8,11 @@ module.exports = {
     data: function () {
         return {
             rawData: [],
-            filteredRawData: [],
-            thisPageData: [],
-            allChecked: false
+            allChecked: false,
+            sort: {
+                field: '',
+                order: ''
+            }
         }
     },
     created: function () {
@@ -20,7 +22,7 @@ module.exports = {
     events: {
         generateDataForThisPage: function () {
             var vm = this;
-            vm.thisPageData = vm.data;
+            vm.rawData = vm.data;
         }
     },
     watch: {
@@ -43,11 +45,38 @@ module.exports = {
             return _.filter(vm.thisPageData, function (item) {
                 return item.checked;
             });
+        },
+        filteredRawData: function () {
+            var vm = this;
+            return vm.rawData;
+        },
+        thisPageData: function () {
+            var vm = this;
+            return vm.filteredRawData;
         }
     },
     methods: {
         sortBy: function (sortField) {
-            
+            var vm = this;
+
+            if (vm.sort.field === sortField) {
+                vm.sort.order = vm.sort.order === 'desc' ? 'asc' : 'desc';
+            } else {
+                vm.sort.field = sortField;
+                vm.sort.order = 'desc';
+            }
+
+            if (vm.sort.order === 'desc') {
+                vm.rawData = _.sortBy(vm.rawData, function (item) {
+                    return item[sortField];
+                });
+            } else {
+                vm.rawData = _.sortBy(vm.rawData, function (item) {
+                    return item[sortField];
+                }).reverse();
+            }
+
+            console.log(vm.rawData);
         }
     }
 };

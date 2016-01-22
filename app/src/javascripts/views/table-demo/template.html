@@ -5,10 +5,10 @@
             <th>
                 <c-checkbox :is-checked.sync="allChecked"></c-checkbox>
             </th>
-            <th class="sortable" @click="sortBy('name')">Name</th>
-            <th class="sortable" @click="sortBy('number')">Number</th>
-            <th class="sortable" @click="sortBy('position')">Position</th>
-            <th class="sortable" @click="sortBy('birth')">Birth</th>
+            <th v-sort-field="name">Name</th>
+            <th v-sort-field="number">Number</th>
+            <th v-sort-field="position">Position</th>
+            <th v-sort-field="birth">Birth</th>
         </tr>
         </thead>
 
