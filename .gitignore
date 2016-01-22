@@ -1,7 +1,4 @@
 .idea/
-.tmp/
 app/dist/
-app/source/fonts/
-app/source/stylesheets/
 bower_components/
 node_modules/
