@@ -14,7 +14,7 @@ var notify = require('gulp-notify');
 var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
-var streamqueue = require('streamqueue');
+var streamSeries = require('stream-series');
 var plumber = require('gulp-plumber');
 var uglify = require('gulp-uglify');
 
@@ -52,13 +52,9 @@ gulp.task('publish-images', function () {
 // and save as app/dist/stylesheets/bundle.css
 gulp.task('publish-css', function () {
     var cssVendors = vendors.stylesheets;
-    var stream = streamqueue({ objectMode: true });
-
-    stream.queue(
-        gulp.src(cssVendors)
-    );
-
-    stream.queue(
+       
+    return streamSeries(
+        gulp.src(cssVendors),
         gulp.src('app/src/sass/main.scss')
             .pipe(plumber({
                 errorHandler: errorAlert
@@ -67,9 +63,7 @@ gulp.task('publish-css', function () {
                 outputStyle: 'expanded'
             }))
             .pipe(autoprefixer())
-    );
-
-    return stream.done()
+        )
         .pipe(concat('bundle.css'))
         .pipe(gulp.dest('app/dist/stylesheets'))
         .pipe(browserSync.stream());
@@ -79,13 +73,9 @@ gulp.task('publish-css', function () {
 // and save as app/dist/javascripts/bundle.js
 gulp.task('publish-js', function () {
     var jsVendors = vendors.javascripts;
-    var stream = streamqueue({ objectMode: true });
-
-    stream.queue(
-        gulp.src(jsVendors)
-    );
-
-    stream.queue(
+        
+    return streamSeries(
+        gulp.src(jsVendors),
         gulp.src('app/src/javascripts/main.js')
             .pipe(plumber({
                 errorHandler: errorAlert
@@ -94,12 +84,9 @@ gulp.task('publish-js', function () {
                 transform: ['partialify'],
                 debug: true
             }))
-    );
-
-    return stream.done()
+        )
         .pipe(concat('bundle.js'))
-        .pipe(gulp.dest('app/dist/javascripts'))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest('app/dist/javascripts'));
 });
 
 // inject app/dist/stylesheets/bundle.css and app/dist/javascripts/bundle.js into app/src/index.html
