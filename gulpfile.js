@@ -28,10 +28,9 @@ var vendors = require('./config/vendors');
 
 // copy fonts from bower_components and app/src/fonts to app/dist/fonts
 gulp.task('publish-fonts', function () {
-    var fonts = [
-        'bower_components/font-awesome/fonts/*',
+    var fonts = vendors.fonts.concat([
         'app/src/fonts/*'
-    ];
+    ]);
 
     return gulp.src(fonts)
         .pipe(gulp.dest('app/dist/fonts'));
@@ -145,7 +144,6 @@ gulp.task('watch', function () {
 // delete files under app/dist
 gulp.task('clean-files', function(cb) {
     return del([
-        '.tmp',
         'app/dist/**/*'
     ], cb);
 });

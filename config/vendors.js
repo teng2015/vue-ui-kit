@@ -16,5 +16,9 @@ module.exports = {
         'bower_components/gilbitron-dropit/dropit.js',
         'bower_components/vue/dist/vue.js',
         'bower_components/vue-router/dist/vue-router.js'
+    ],
+
+    fonts: [
+        'bower_components/font-awesome/fonts/*'
     ]
 };
