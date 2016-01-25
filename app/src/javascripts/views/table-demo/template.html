@@ -1,14 +1,20 @@
 <c-table inline-template :data="players">
+    <header class="table-header">
+        <div class="table-search">
+            <input type="text" placeholder="Input a name here" v-search-field="name">
+        </div>
+    </header>
+
     <table class="table">
         <thead>
         <tr>
             <th>
                 <c-checkbox :is-checked.sync="allChecked"></c-checkbox>
             </th>
-            <th v-sort-field="name">Name</th>
-            <th v-sort-field="number">Number</th>
-            <th v-sort-field="position">Position</th>
-            <th v-sort-field="birth">Birth</th>
+            <th v-sort-field="name">Name<i class="sort-icon"></i></th>
+            <th v-sort-field="number">Number<i class="sort-icon"></i></th>
+            <th v-sort-field="position">Position<i class="sort-icon"></i></th>
+            <th v-sort-field="birth">Birth<i class="sort-icon"></i></th>
         </tr>
         </thead>
 
@@ -24,4 +30,8 @@
         </tr>
         </tbody>
     </table>
+
+    <footer class="table-footer">
+
+    </footer>
 </c-table>
