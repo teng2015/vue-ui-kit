@@ -1,16 +1,16 @@
-# vue-starter-kit
+# Vue-UI-Kit
 
 A boilerplate using Vue.js, Gulp, Sass and Browserify, with a bunch of bulit-in tools and components that make your life easier.
 
 ## Getting Started
 
-To get you started you can simply clone the vue-starter-kit repository and install the dependencies:
+To get you started you can simply clone the vue-ui-kit repository and install the dependencies:
 
-### Clone vue-starter-kit
+### Clone vue-ui-kit
 
 Clone the angular-seed repository using git:
 
-    git clone --depth=1 https://github.com/panteng/vue-starter-kit.git <your-project-name>
+    git clone --depth=1 https://github.com/panteng/vue-ui-kit.git <your-project-name>
 
 ### Install Dependencies
 
