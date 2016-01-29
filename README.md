@@ -8,7 +8,7 @@ To get you started you can simply clone the vue-ui-kit repository and install th
 
 ### Clone vue-ui-kit
 
-Clone the angular-seed repository using git:
+Clone the vue-ui-kit repository using git:
 
     git clone --depth=1 https://github.com/panteng/vue-ui-kit.git <your-project-name>
 
