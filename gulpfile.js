@@ -201,7 +201,9 @@ gulp.task('del-bundle', function (cb) {
     ], cb);
 });
 
-// run 'minify-css' and 'uglify-js' at the same time
+// run 'minify-css' and 'uglify-js' at the same time. 
+// inject the minified files to index.html.
+// delete unminified files.
 gulp.task('prod',  function (cb) {
     runSequence(['minify-css', 'uglify-js'], ['inject-min', 'del-bundle'], cb);
 });
