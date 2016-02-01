@@ -8,15 +8,11 @@ module.exports = {
     data: function () {
         return {
             rawData: [],
-            searchText: '',
-            allChecked: false,
+            filterCondition: [],
             sortCondition: {},
-            filterCondition: [
-                {
-                    field: '',
-                    value: ''
-                }
-            ]
+            allChecked: false,
+            itemsPerPage: 5,
+            currentPage: 0
         }
     },
     created: function () {
@@ -30,36 +26,55 @@ module.exports = {
         }
     },
     watch: {
-        'allChecked': function (val, oldVal) {
+        allChecked: function (val, oldVal) {
             var vm = this;
             _.each(vm.thisPageData, function (item) {
                 item.checked = val;
             });
         },
-        'selectedItems': function (val, oldVal) {
+        selectedItems: function (val, oldVal) {
             var vm = this;
-            if (val.length === vm.thisPageData.length) {
+            if (val.length !== 0 && val.length === vm.thisPageData.length) {
                 vm.allChecked = true;
             }
         }
     },
     computed: {
-        selectedItems: function () {
-            var vm = this;
-            return _.filter(vm.thisPageData, function (item) {
-                return item.checked;
-            });
-        },
-        filteredRawData: function () {
+        filteredData: function () {
             var vm = this;
 
-            return _.filter(vm.rawData, function (item) {
-                return item.name.toLowerCase().indexOf(vm.filterCondition[0].value) !== -1;
+            //return _.filter(vm.rawData, function (item) {
+            //    return item.name.toLowerCase().indexOf(vm.filterCondition[0].value) !== -1;
+            //});
+
+            return _.each(vm.rawData, function (rd) {
+                _.each(vm.filterCondition, function (fc) {
+
+                });
             });
         },
         thisPageData: function () {
             var vm = this;
-            return vm.filteredRawData;
+            var result = [];
+
+            for (var i = vm.currentPage * vm.itemsPerPage; i < (vm.currentPage + 1) * vm.itemsPerPage && i < vm.filteredData.length; i ++) {
+                result.push(vm.filteredData[i]);
+            }
+            return result;
+        },
+        selectedItems: function () {
+            var vm = this;
+            var result;
+
+            if (!vm.thisPageData[0]) {
+                result = [];
+            } else {
+                result = _.filter(vm.thisPageData, function (item) {
+                    return item.checked;
+                });
+            }
+
+            return result;
         }
     },
     directives: {
@@ -70,8 +85,18 @@ module.exports = {
                 var $el = $(_this.el);
 
                 $el.on('keyup', function () {
-                    _this.vm.filterCondition[0].field = searchField;
-                    _this.vm.filterCondition[0].value = $el.val();
+                    var target = _.find(_this.vm.filterCondition, function (fc) {
+                        return fc.field === searchField;
+                    });
+
+                    if (!target) {
+                        _this.vm.filterCondition.push({
+                            field: searchField,
+                            value: $el.val()
+                        });
+                    } else {
+                        target.value = $el.val();
+                    }
                 });
             },
             unbind: function () {
@@ -116,6 +141,5 @@ module.exports = {
                     .removeClass('sortable desc asc');
             }
         }
-    },
-    components: {}
+    }
 };

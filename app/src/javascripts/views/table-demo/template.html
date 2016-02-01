@@ -32,6 +32,6 @@
     </table>
 
     <footer class="table-footer">
-
+        <c-pagination :items-total="rawData.length" :items-per-page="itemsPerPage" :current-page.sync="currentPage"></c-pagination>
     </footer>
 </c-table>
