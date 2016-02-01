@@ -22,9 +22,11 @@ module.exports = {
         }
     },
     directives: {
-        bind: function () {
-            var _this = this;
-            $(_this.el).dropit();
+        dropit: {
+            bind: function () {
+                var _this = this;
+                $(_this.el).dropit();
+            }
         }
     },
     filters: {
