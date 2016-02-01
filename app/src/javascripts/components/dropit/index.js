@@ -21,6 +21,12 @@ module.exports = {
             default: 'Please select'
         }
     },
+    directives: {
+        bind: function () {
+            var _this = this;
+            $(_this.el).dropit();
+        }
+    },
     filters: {
         getText: function (option) {
             if (!option) {
