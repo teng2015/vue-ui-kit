@@ -1,5 +1,21 @@
 @charset "UTF-8";
 
+$sidebarWidth: 200px;
+$sidebarPosTop: 60px;
+$sidebarBgColor: #191818;
+$sidebarZIndex: 0;
+
+$navNormalColor: #999;
+
+$navHoverColor: #999;
+$navHoverBgColor: #333;
+
+$navActiveColor: #fff;
+$navActiveBgColor: #1f8dd6;
+
+$navItemHeight: 45px;
+$navItemPadding: 0 20px;
+
 .sidebar {
     width: $sidebarWidth;
     height: calc(100vh - #{$sidebarPosTop});

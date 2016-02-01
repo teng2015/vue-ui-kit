@@ -1,5 +1,29 @@
 @charset "UTF-8";
 
+$unitWidth: 30px;
+$unitHeight: 30px;
+$unitMargin: -1px;
+
+$transition: none;
+
+$normalBgColor: #fff;
+$normalColor: #333;
+$normalBorderWidth: 1px;
+$normalBorderColor: #ddd;
+$normalFontSize: 12px;
+
+$hoverBgColor: #eee;
+$hoverColor: #333;
+$hoverBorderWidth: 1px;
+$hoverBorderColor: #ddd;
+$hoverFontSize: 12px;
+
+$activeBgColor: #1f8dd6;
+$activeColor: #fff;
+$activeBorderWidth: 1px;
+$activeBorderColor: #1f8dd6;
+$activeFontSize: 12px;
+
 .pagination {
     margin: 0;
     padding: 0;
@@ -31,7 +55,7 @@
             font-size: $hoverFontSize;
             z-index: 1;
         }
-        &.active {
+        &.current {
             background-color: $activeBgColor;
             color: $activeColor;
             border: $activeBorderWidth solid $activeBorderColor;

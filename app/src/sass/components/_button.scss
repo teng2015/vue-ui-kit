@@ -1,5 +1,37 @@
 @charset "UTF-8";
 
+$btnPadding: 5px 10px;
+$btnBorder: none;
+$btnBorderRadius: 2px;
+
+$btnNormalColor: rgba(0,0,0,.8);
+$btnNormalBgColor: #eee;
+$btnHoverColor: rgba(0,0,0,.8);
+$btnHoverBgColor: #ddd;
+$btnActiveColor: rgba(0,0,0,.8);
+$btnActiveBgColor: #ccc;
+
+$btnPrimaryNormalColor: #fff;
+$btnPrimaryNormalBgColor: #0078e7;
+$btnPrimaryHoverColor: #fff;
+$btnPrimaryHoverBgColor: #005eb5;
+$btnPrimaryActiveColor: #fff;
+$btnPrimaryActiveBgColor: #004280;
+
+$btnSuccessNormalColor: #fff;
+$btnSuccessNormalBgColor: #1Cb841;
+$btnSuccessHoverColor: #fff;
+$btnSuccessHoverBgColor: #178f33;
+$btnSuccessActiveColor: #fff;
+$btnSuccessActiveBgColor: #127329;
+
+$btnDangerNormalColor: #fff;
+$btnDangerNormalBgColor: #cA3c3c;
+$btnDangerHoverColor: #fff;
+$btnDangerHoverBgColor: #9c2f2f;
+$btnDangerActiveColor: #fff;
+$btnDangerActiveBgColor: #732424;
+
 .btn {
     display: inline-block;
     padding: $btnPadding;
