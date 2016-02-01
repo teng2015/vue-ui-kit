@@ -1,6 +1,6 @@
 # Vue-UI-Kit
 
-A boilerplate using Vue.js, Gulp, Sass and Browserify, with a bunch of bulit-in tools and components that make your life easier.
+A boilerplate using Vue.js, Gulp, Sass and Browserify, with a bunch of bulit-in tools and ui components that make your life easier.
 
 ![此处输入图片的描述][1]
 
