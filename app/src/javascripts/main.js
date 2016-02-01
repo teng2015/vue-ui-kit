@@ -20,7 +20,6 @@ Vue.component('c-switcher', require('./components/switcher'));
 // register directives
 Vue.directive('pikaday', require('./directives/pikaday'));
 Vue.directive('remodal', require('./directives/remodal'));
-Vue.directive('dropit', require('./directives/dropit'));
 
 // register filters
 Vue.filter('timeFormatter', require('./filters/timeFormatter'));
