@@ -2,6 +2,8 @@
 
 A boilerplate using Vue.js, Gulp, Sass and Browserify, with a bunch of bulit-in tools and components that make your life easier.
 
+![此处输入图片的描述][1]
+
 ## Getting Started
 
 To get you started you can simply clone the vue-ui-kit repository and install the dependencies:
@@ -31,3 +33,5 @@ or just
     
 ## License
 MIT
+
+  [1]: https://raw.githubusercontent.com/panteng/vue-ui-kit/master/demo.jpg
