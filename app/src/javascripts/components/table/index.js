@@ -42,16 +42,15 @@ module.exports = {
     computed: {
         filteredData: function () {
             var vm = this;
+            var result = vm.rawData;
 
-            //return _.filter(vm.rawData, function (item) {
-            //    return item.name.toLowerCase().indexOf(vm.filterCondition[0].value) !== -1;
-            //});
-
-            return _.each(vm.rawData, function (rd) {
-                _.each(vm.filterCondition, function (fc) {
-
+            _.each(vm.filterCondition, function (rc) {
+                result = _.filter(result, function (r) {
+                    return r[rc.field].toString().toLowerCase().indexOf(rc.value.toString()) !== -1;
                 });
             });
+
+            return result;
         },
         thisPageData: function () {
             var vm = this;
@@ -100,6 +99,7 @@ module.exports = {
                 });
             },
             unbind: function () {
+                var $el = $(this.el);
                 $el.off('keyup');
             }
         },

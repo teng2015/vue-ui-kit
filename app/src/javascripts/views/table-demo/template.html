@@ -2,6 +2,7 @@
     <header class="table-header">
         <div class="table-search">
             <input type="text" placeholder="Input a name here" v-search-field="name">
+            <input type="text" placeholder="Input a number here" v-search-field="number">
         </div>
     </header>
 
@@ -32,6 +33,6 @@
     </table>
 
     <footer class="table-footer">
-        <c-pagination :items-total="rawData.length" :items-per-page="itemsPerPage" :current-page.sync="currentPage"></c-pagination>
+        <c-pagination :items-total="filteredData.length" :items-per-page="itemsPerPage" :current-page.sync="currentPage"></c-pagination>
     </footer>
 </c-table>
