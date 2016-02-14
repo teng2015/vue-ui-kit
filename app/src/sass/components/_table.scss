@@ -68,6 +68,16 @@ $dataTableEvenTrBgColor: #f9f9f9;
 .table-footer {
     margin-top: 20px;
     @include clearfix();
+    .length {
+        float: left;
+        margin: 0;
+        line-height: 30px;
+    }
+    .pointer {
+        float: right;
+        margin: 0 20px 0 0;
+        line-height: 30px;
+    }
     .pagination {
         float: right;
     }

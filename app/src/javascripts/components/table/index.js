@@ -79,5 +79,9 @@ module.exports = {
     directives: {
         'search-field': require('./directives/search-field'),
         'sort-field': require('./directives/sort-field')
+    },
+    components: {   // register private components
+        'p-length': require('./components/length'),
+        'p-pointer': require('./components/pointer')
     }
 };

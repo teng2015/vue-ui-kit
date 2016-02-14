@@ -33,6 +33,8 @@
     </table>
 
     <footer class="table-footer">
+        <p-length :length.sync="itemsPerPage" :options="[5, 10, 15]"></p-length>
         <c-pagination :items-total="filteredData.length" :items-per-page="itemsPerPage" :current-page.sync="currentPage"></c-pagination>
+        <p-pointer :items-total="filteredData.length" :items-per-page="itemsPerPage" :current-page.sync="currentPage"></p-pointer>
     </footer>
 </c-table>
