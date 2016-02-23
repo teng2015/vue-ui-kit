@@ -9,5 +9,9 @@ module.exports = {
             type: Array,
             default: [15, 30, 45]
         }
+    },
+    created: function () {
+        var vm = this;
+        vm.length = vm.options[0];
     }
 };

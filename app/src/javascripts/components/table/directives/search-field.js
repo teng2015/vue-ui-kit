@@ -20,7 +20,18 @@ module.exports = {
         });
     },
     unbind: function () {
-        var $el = $(this.el);
+        var _this = this;
+        var searchField = _this.expression;
+        var $el = $(_this.el);
+
+        var target = _.find(_this.vm.filterCondition, function (fc) {
+            return fc.field === searchField;
+        });
+
+        if (target) {
+            target.value = '';
+        }
+
         $el.off('keyup');
     }
 };

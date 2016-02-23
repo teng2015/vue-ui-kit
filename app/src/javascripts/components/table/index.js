@@ -11,13 +11,9 @@ module.exports = {
             filterCondition: [],
             sortCondition: {},
             allChecked: false,
-            itemsPerPage: 5,
+            itemsPerPage: 0,
             currentPage: 0
         }
-    },
-    created: function () {
-        var vm = this;
-        vm.$emit('generateDataForThisPage');
     },
     events: {
         generateDataForThisPage: function () {
@@ -26,6 +22,10 @@ module.exports = {
         }
     },
     watch: {
+        data: function (val, oldVal) {
+            var vm = this;
+            vm.$emit('generateDataForThisPage');
+        },
         allChecked: function (val, oldVal) {
             var vm = this;
             _.each(vm.thisPageData, function (item) {
@@ -36,7 +36,15 @@ module.exports = {
             var vm = this;
             if (val.length !== 0 && val.length === vm.thisPageData.length) {
                 vm.allChecked = true;
+            } else if (val.length === 0) {
+                vm.allChecked
             }
+        },
+        currentPage: function (val, oldVal) {
+            var vm = this;
+            _.each(vm.rawData, function (rd) {
+                rd.checked = false;
+            });
         }
     },
     computed: {
@@ -46,7 +54,11 @@ module.exports = {
 
             _.each(vm.filterCondition, function (rc) {
                 result = _.filter(result, function (r) {
-                    return r[rc.field].toString().toLowerCase().indexOf(rc.value.toString()) !== -1;
+                    if (!r[rc.field]) {
+                        return false;
+                    } else {
+                        return r[rc.field].toString().toLowerCase().indexOf(rc.value.toString().toLowerCase()) !== -1;
+                    }
                 });
             });
 

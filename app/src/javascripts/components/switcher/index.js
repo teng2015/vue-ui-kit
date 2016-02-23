@@ -6,8 +6,7 @@ module.exports = {
             default: ['','']
         },
         isActive: {
-            type: Boolean,
-            required: true
+            default: false
         }
     }
 };
