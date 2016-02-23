@@ -3,6 +3,10 @@ module.exports = {
         data: {
             type: Array,
             required: true
+        },
+        pagination: {
+            type: Boolean,
+            default: true
         }
     },
     data: function () {
@@ -11,9 +15,20 @@ module.exports = {
             filterCondition: [],
             sortCondition: {},
             allChecked: false,
-            itemsPerPage: 0,
+            itemsPerPage: null,
             currentPage: 0
         }
+    },
+    created: function () {
+        var vm = this;
+
+        if (vm.pagination) {
+            vm.itemsPerPage = 1;
+        } else {
+            vm.itemsPerPage = 0;
+        }
+
+        vm.$emit('generateDataForThisPage');
     },
     events: {
         generateDataForThisPage: function () {
@@ -37,7 +52,7 @@ module.exports = {
             if (val.length !== 0 && val.length === vm.thisPageData.length) {
                 vm.allChecked = true;
             } else if (val.length === 0) {
-                vm.allChecked
+                vm.allChecked;
             }
         },
         currentPage: function (val, oldVal) {
@@ -68,9 +83,14 @@ module.exports = {
             var vm = this;
             var result = [];
 
-            for (var i = vm.currentPage * vm.itemsPerPage; i < (vm.currentPage + 1) * vm.itemsPerPage && i < vm.filteredData.length; i ++) {
-                result.push(vm.filteredData[i]);
+            if (vm.itemsPerPage === 0) {
+                result = vm.filteredData;
+            } else {
+                for (var i = vm.currentPage * vm.itemsPerPage; i < (vm.currentPage + 1) * vm.itemsPerPage && i < vm.filteredData.length; i ++) {
+                    result.push(vm.filteredData[i]);
+                }
             }
+
             return result;
         },
         selectedItems: function () {

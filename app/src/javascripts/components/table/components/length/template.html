@@ -1,4 +1,4 @@
-<p class="length">Show
+<p class="length" v-if="show">Show
     <select v-model="length">
         <option v-for="option in options" v-bind:value="option">{{ option }}</option>
     </select>

@@ -14,6 +14,16 @@ module.exports = {
             required: true
         }
     },
+    data: function () {
+        return {
+            show: true
+        }
+    },
+    created: function () {
+        var vm = this;
+
+        vm.show = vm.itemsPerPage === 0 ? false : true;
+    },
     computed: {
         thisPageStart: function () {
             var vm = this;

@@ -22,6 +22,7 @@ Vue.directive('pikaday', require('./directives/pikaday'));
 Vue.directive('remodal', require('./directives/remodal'));
 
 // register filters
+Vue.filter('fileSizeFormatter', require('./filters/fileSizeFormatter'));
 Vue.filter('timeFormatter', require('./filters/timeFormatter'));
 Vue.filter('percentageFormatter', require('./filters/percentageFormatter'));
 

@@ -14,11 +14,21 @@ module.exports = {
             required: true
         }
     },
+    data: function () {
+        return {
+            show: true
+        }
+    },
     computed: {
         pagesTotal: function () {
             var vm = this;
             return Math.ceil(vm.itemsTotal / vm.itemsPerPage);
         }
+    },
+    created: function () {
+        var vm = this;
+
+        vm.show = vm.itemsPerPage === 0 ? false : true;
     },
     methods: {
         setPage: function (pageNumber) {

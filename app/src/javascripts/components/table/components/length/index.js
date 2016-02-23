@@ -10,8 +10,19 @@ module.exports = {
             default: [15, 30, 45]
         }
     },
+    data: function () {
+        return {
+            show: true
+        }
+    },
     created: function () {
         var vm = this;
-        vm.length = vm.options[0];
+
+        if (vm.length === 0) {
+            vm.show = false;
+        } else {
+            vm.show = true;
+            vm.length = vm.options[0];
+        }
     }
 };
