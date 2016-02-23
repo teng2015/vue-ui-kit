@@ -24,7 +24,7 @@ $dropitOptionHoverBgColor: #f3f9f9;
     .dropit-trigger {
         position: relative;
         > a {
-            display: block;
+            display: inline-block;
             width: 100%;
             line-height: $dropitTriggerHeight - 2 * $dropitBorderWidth;
             padding-left: $dropitOptionHorizontalPadding;
