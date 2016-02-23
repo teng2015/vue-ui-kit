@@ -39,6 +39,7 @@ module.exports = {
     watch: {
         data: function (val, oldVal) {
             var vm = this;
+            vm.currentPage = 0;
             vm.$emit('generateDataForThisPage');
         },
         allChecked: function (val, oldVal) {

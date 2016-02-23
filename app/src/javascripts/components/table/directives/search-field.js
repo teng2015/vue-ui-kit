@@ -17,6 +17,8 @@ module.exports = {
             } else {
                 target.value = $el.val();
             }
+
+            _this.vm.currentPage = 0;
         });
     },
     unbind: function () {
