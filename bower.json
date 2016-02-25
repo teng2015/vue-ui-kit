@@ -1,15 +1,6 @@
 {
   "name": "vue-ui-kit",
   "dependencies": {
-    "font-awesome": "~4.5.0",
-    "jquery": "~2.2.0",
-    "moment": "~2.11.1",
-    "normalize-css": "normalize.css#~3.0.3",
-    "remodal": "~1.0.6",
-    "underscore": "~1.8.3",
-    "vue": "~1.0.15",
-    "vue-router": "~0.7.9",
-    "pikaday": "~1.4.0",
     "gilbitron-dropit": "https://github.com/gilbitron/dropit.git#1.1.1"
   }
 }

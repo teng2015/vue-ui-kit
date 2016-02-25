@@ -1,24 +1,25 @@
 module.exports = {
     stylesheets: [
-        'bower_components/normalize-css/normalize.css',
-        'bower_components/font-awesome/css/font-awesome.css',
-        'bower_components/remodal/dist/remodal.css',
-        'bower_components/pikaday/css/pikaday.css',
+        'node_modules/normalize-css/normalize.css',
+        'node_modules/font-awesome/css/font-awesome.css',
+        'node_modules/remodal/dist/remodal.css',
+        'node_modules/pikaday/css/pikaday.css',
         'bower_components/gilbitron-dropit/dropit.css'
     ],
 
     javascripts: [
-        'bower_components/jquery/dist/jquery.js',
-        'bower_components/moment/moment.js',
-        'bower_components/underscore/underscore.js',
-        'bower_components/remodal/dist/remodal.js',
-        'bower_components/pikaday/pikaday.js',
+        'node_modules/jquery/dist/jquery.js',
+        'node_modules/moment/moment.js',
+        'node_modules/underscore/underscore.js',
+        'node_modules/remodal/dist/remodal.js',
+        'node_modules/pikaday/pikaday.js',
+        'node_modules/vue/dist/vue.js',
+        'node_modules/vue-router/dist/vue-router.js',
+        'node_modules/vue-validator/dist/vue-validator.js',
         'bower_components/gilbitron-dropit/dropit.js',
-        'bower_components/vue/dist/vue.js',
-        'bower_components/vue-router/dist/vue-router.js'
     ],
 
     fonts: [
-        'bower_components/font-awesome/fonts/*'
+        'node_modules/font-awesome/fonts/*'
     ]
 };
