@@ -21,7 +21,7 @@ Clone the vue-ui-kit repository using git:
 This may take several minutes. Behind the scenes it will also call `bower install`. You should find two new folders in your project.
 
  - `node_modules` - contains the npm packages for the gulp tasks and frontend dependencies.
- - `bower_components` - contains frontend packages that cannot install by npm.
+ - `bower_components` - contains frontend packages that cannot be installed by npm.
  
 ### Start Developing
 
