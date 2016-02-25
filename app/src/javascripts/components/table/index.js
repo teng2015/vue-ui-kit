@@ -70,11 +70,15 @@ module.exports = {
 
             _.each(vm.filterCondition, function (rc) {
                 result = _.filter(result, function (r) {
-                    if (!r[rc.field]) {
-                        return false;
-                    } else {
-                        return r[rc.field].toString().toLowerCase().indexOf(rc.value.toString().toLowerCase()) !== -1;
+                    if (r[rc.field] === undefined) {
+                        if (rc.value === '') {
+                            return true;
+                        } else {
+                            return false;
+                        }
                     }
+
+                    return r[rc.field].toString().toLowerCase().indexOf(rc.value.toString().toLowerCase()) !== -1;
                 });
             });
 
