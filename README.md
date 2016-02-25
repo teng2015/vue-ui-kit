@@ -2,7 +2,7 @@
 
 A boilerplate using Vue.js, Gulp, Sass and Browserify, with a bunch of bulit-in tools and ui components that make your life easier.
 
-![此处输入图片的描述][1]
+![Screenshot][1]
 
 ## Getting Started
 
@@ -20,8 +20,8 @@ Clone the vue-ui-kit repository using git:
     
 This may take several minutes. Behind the scenes it will also call `bower install`. You should find two new folders in your project.
 
- - `node_modules` - contains the npm packages for the gulp tasks.
- - `bower_components` - contains all frontend packages.
+ - `node_modules` - contains the npm packages for the gulp tasks and frontend dependencies.
+ - `bower_components` - contains frontend packages that cannot install by npm.
  
 ### Start Developing
 
