@@ -29,13 +29,7 @@ Vue.filter('percentageFormatter', require('./filters/percentageFormatter'));
 // register validations
 
 // app constructor
-var App = Vue.extend({
-    data: function () {
-        return {
-            view: ''
-        }
-    }
-});
+var App = Vue.extend({});
 
 // views
 Vue.component('v-home', require('./views/home'));
