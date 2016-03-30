@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+$headerWidth: 100%;
+$headerHeight: 60px;
+
+$headerBgColor: $greyBlack;
+
+$logoWidth: 200px;
+
+.header {
+    width: $headerWidth;
+    height: $headerHeight;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $headerBgColor;
+    z-index: 1;
+    .logo {
+        float: left;
+        width: $logoWidth;
+        height: $headerHeight;
+        line-height: $headerHeight;
+        text-align: center;
+        background-color: $green;
+    }
+}

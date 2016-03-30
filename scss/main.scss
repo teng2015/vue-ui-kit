@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+// helpers
+@import "helpers/global-variables";
+@import "helpers/mixins";
+@import "helpers/functions";
+
+// base
+@import "base/reset";
+@import "base/base";
+
+// layouts
+@import "layouts/header";
+@import "layouts/sidebar";
+@import "layouts/content";
+
+// components
+@import "components/checkbox";
+@import "components/switcher";
+
+// views
+@import "views/checkbox-demo";
+@import "views/switcher-demo";

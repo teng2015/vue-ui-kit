@@ -1,7 +1,7 @@
 {
   "name": "vue-ui-kit",
-  "version": "2.0.0",
-  "description": "A boilerplate using Vue.js, Gulp, Sass and Browserify.",
+  "version": "3.0.0",
+  "description": "A lightweight and fully customizable UI solution for Vue.js apps.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/panteng/vue-ui-kit.git"
@@ -9,36 +9,29 @@
   "author": "Chris Pan",
   "license": "MIT",
   "scripts": {
-    "postinstall": "bower install"
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.dev.conf.js --inline --hot"
   },
   "devDependencies": {
-    "browser-sync": "^2.10.1",
-    "del": "^2.2.0",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-inject": "^3.0.0",
-    "gulp-minify-css": "^1.2.2",
-    "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.0.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.1.1",
-    "gulp-uglify": "^1.5.1",
-    "partialify": "^3.1.5",
-    "run-sequence": "^1.1.5",
-    "stream-series": "^0.1.1"
+    "autoprefixer-loader": "^3.2.0",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "html-loader": "^0.4.3",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "font-awesome": "^4.5.0",
-    "jquery": "^2.2.0",
-    "moment": "^2.11.2",
+    "jquery": "^2.2.2",
+    "moment": "^2.12.0",
     "normalize-css": "^2.3.1",
-    "pikaday": "^1.4.0",
-    "remodal": "^1.0.6",
     "underscore": "^1.8.3",
-    "vue": "^1.0.16",
+    "vue": "^1.0.20",
     "vue-router": "^0.7.11",
-    "vue-validator": "^2.0.0-alpha.21"
+    "vue-validator": "^2.0.0-beta.5"
   }
 }

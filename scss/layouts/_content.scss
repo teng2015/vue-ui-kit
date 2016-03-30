@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+$contentPosTop: 60px;
+$contentPosLeft: 200px;
+
+$contentPadding: 30px;
+$contentBgColor: #fff;
+
+.content {
+    width: calc(100% - #{$contentPosLeft});
+    height: calc(100vh - #{$contentPosTop});
+    padding: $contentPadding;
+    position: absolute;
+    top: $contentPosTop;
+    left: $contentPosLeft;
+    background-color: $contentBgColor;
+    overflow: auto;
+}

@@ -1,6 +1,0 @@
-{
-  "name": "vue-ui-kit",
-  "dependencies": {
-    "gilbitron-dropit": "https://github.com/gilbitron/dropit.git#1.1.1"
-  }
-}

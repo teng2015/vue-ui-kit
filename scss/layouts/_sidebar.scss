@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+$sidebarWidth: 200px;
+$sidebarPosTop: 60px;
+$sidebarBgColor: $greyBlack;
+
+$navNormalColor: #fff;
+
+$navHoverColor: #fff;
+$navHoverBgColor: #333;
+
+$navActiveColor: #fff;
+$navActiveBgColor: $blue;
+
+$navItemHeight: 45px;
+$navItemPadding: 0 20px;
+
+.sidebar {
+    width: $sidebarWidth;
+    height: calc(100vh - #{$sidebarPosTop});
+    position: absolute;
+    top: $sidebarPosTop;
+    left: 0;
+    background-color: $sidebarBgColor;
+    nav {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li {
+                height: $navItemHeight;
+                line-height: $navItemHeight;
+                color: $navNormalColor;
+                &:hover {
+                    color: $navHoverColor;
+                    background-color: $navHoverBgColor;
+                }
+                &.active {
+                    color: $navActiveColor;
+                    background-color: $navActiveBgColor;
+                }
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    padding: $navItemPadding;
+                    color: inherit;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

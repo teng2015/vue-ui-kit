@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+$switcherWidth: 60px;
+$switcherHeight: 24px;
+
+$handlerWidth: 16px;
+$handlerHeight: 16px;
+$handlerOffsetX: 2px;
+
+$positiveColor: $green;
+$negativeColor: $grey;
+
+$borderWidth: 1px;
+
+$trackWidth: 2 * $switcherWidth - $switcherHeight - 2 * $borderWidth;
+
+$textFontSize: 12px;
+
+.switcher {
+    display: inline-block;
+    width: $switcherWidth;
+    height: $switcherHeight;
+    position: relative;
+    vertical-align: middle;
+    border-radius: $switcherHeight / 2;
+    transition: all 400ms;
+    cursor: pointer;
+    overflow: hidden;
+    user-select: none;
+    &.active {
+        background-color: $positiveColor;
+        border: 1px solid $positiveColor - 15;
+        .handler {
+            border: 1px solid $positiveColor - 15;
+            margin-left: -$handlerOffsetX;
+        }
+    }
+    &.inactive {
+        background-color: $negativeColor;
+        border: 1px solid $negativeColor - 15;
+        .track {
+            left: -$trackWidth + $switcherWidth - 2 * $borderWidth;
+        }
+        .handler {
+            border: 1px solid $negativeColor - 15;
+            margin-left: $handlerOffsetX;
+        }
+    }
+    .track {
+        width: $trackWidth;
+        height: $switcherHeight - 2 * $borderWidth;
+        line-height: $switcherHeight - 2 * $borderWidth;
+        position: absolute;
+        left: 0px;
+        transition: all 300ms;
+        cursor: pointer;
+        > * {
+            float: left;
+        }
+    }
+    .handler {
+        width: $handlerWidth;
+        height: $handlerHeight;
+        background-color: #fff;
+        border-radius: 50%;
+        position: absolute;;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        transition: all 200ms;
+        cursor: pointer;
+    }
+    .text {
+       width: ($trackWidth - $handlerWidth) / 2;
+       height: $switcherHeight - 2 * $borderWidth;
+       line-height: $switcherHeight - 2 * $borderWidth;
+       position: absolute;
+       color: #fff;
+       text-align: center;
+       font-size: $textFontSize;
+       cursor: pointer;
+       &.left {
+           left: 0px;
+       }
+       &.right {
+           right: 0px;
+       }
+   }
+}
