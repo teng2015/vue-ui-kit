@@ -22,7 +22,7 @@ $checkmarkColor: $green;
     border: $borderWidth solid $borderColor;
     border-radius: $borderRadius;
     cursor: pointer;
-    user-select: none;
+    @include user-select(none);
 
     &.checked {
         &:after {

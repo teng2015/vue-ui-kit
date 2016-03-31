@@ -7,3 +7,9 @@
         clear:both;
     }
 }
+
+@mixin user-select($value: none) {
+    -moz-user-select: $value;
+    -ms-user-select: $value;
+    -webkit-user-select: $value;
+}

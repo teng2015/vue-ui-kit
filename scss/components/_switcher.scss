@@ -26,7 +26,7 @@ $textFontSize: 12px;
     transition: all 400ms;
     cursor: pointer;
     overflow: hidden;
-    user-select: none;
+    @include user-select(none);
     &.active {
         background-color: $positiveColor;
         border: 1px solid $positiveColor - 15;
