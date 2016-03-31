@@ -1,4 +1,5 @@
 var path = require('path');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
     context: __dirname,
@@ -18,11 +19,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader!autoprefixer-loader'
+                loader: 'style-loader!css-loader!postcss-loader'
             },
             {
                 test: /\.scss$/,
-                loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader'
+                loader: 'style-loader!css-loader!postcss-loader!sass-loader'
             },
             {
                 test: /\.(png|jpg)$/,
@@ -50,6 +51,7 @@ module.exports = {
             }
         ]
     },
+    postcss: [ autoprefixer({ browsers: ['not ie <= 8'] }) ],
     devServer: {
         contentBase: './'
     }
