@@ -1,6 +1,7 @@
 'use strict';
 
 require('normalize-css');
+require('font-awesome/css/font-awesome.css');
 require('../scss/main.scss');
 
 /**
@@ -20,6 +21,7 @@ Vue.component('l-content', require('./components/layout/content'));
 
 // common components
 Vue.component('c-checkbox', require('./components/common/checkbox'));
+Vue.component('c-selectbox', require('./components/common/selectbox'));
 Vue.component('c-switcher', require('./components/common/switcher'));
 
 // global directives
@@ -37,6 +39,9 @@ Vue.filter('percentageFormatter', require('./filters/percentageFormatter'));
 Vue.component('v-checkboxDemo', function (resolve) {
     require(['./views/checkbox-demo'], resolve);
 });
+Vue.component('v-selectboxDemo', function (resolve) {
+    require(['./views/selectbox-demo'], resolve);
+});
 Vue.component('v-switcherDemo', function (resolve) {
     require(['./views/switcher-demo'], resolve);
 });
@@ -53,6 +58,9 @@ var router = new VueRouter({
 router.map({
     '/checkbox': {
         component: Vue.component('v-checkboxDemo')
+    },
+    '/selectbox': {
+        component: Vue.component('v-selectboxDemo')    
     },
     '/switcher': {
         component: Vue.component('v-switcherDemo')

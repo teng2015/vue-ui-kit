@@ -1,0 +1,10 @@
+<div class="selectbox" @click="selectboxOpen = !selectboxOpen" v-selectbox>
+    <div class="selectbox-trigger">
+        <span class="selectbox-selected">{{ selectedOption | getText }}</span>
+        <i class="selectbox-icon fa fa-angle-down"></i>
+    </div>
+    
+    <ul class="selectbox-options" v-show="selectboxOpen">
+        <li v-for="o in options" @click="selectedOption = o" :class="{ selected: o === selectedOption }">{{ o | getText }}</li>
+    </ul>
+</div>
