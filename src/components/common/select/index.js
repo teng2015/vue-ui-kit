@@ -19,11 +19,11 @@ module.exports = {
     },
     data: function () {
         return {
-            selectboxOpen: false
+            selectOpen: false
         }
     },
     directives: {
-        selectbox: require('./directives/selectbox')
+        selectbox: require('./directives/select')
     },
     filters: {
         getText: require('./filters/getText')

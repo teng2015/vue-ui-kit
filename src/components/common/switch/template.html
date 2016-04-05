@@ -1,4 +1,4 @@
-<div class="switcher" :class="{ active: isActive, inactive: !isActive }" @click="isActive = !isActive">
+<div class="switch" :class="{ active: active, inactive: !active }" @click="active = !active">
     <div class="track clearfix">
         <label class="text left">{{ labels[0] }}</label>
         <div class="handler"></div>

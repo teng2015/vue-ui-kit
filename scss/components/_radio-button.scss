@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+$radioButtonWidth: 20px;
+$radioButtonHeight: 20px;
+
+$radioButtonBgColor: #fff;
+
+$radioButtonBorderWidth: 1px;
+$radioButtonBorderColor: $grey;
+
+$radioButtonMarkSize: 8px;
+$radioButtonMarkOffsetY: 2px;
+$radioButtonMarkColor: $green;
+
+.radio-button {
+    display: inline-block;
+    width: $radioButtonWidth;
+    height: $radioButtonHeight;
+    position: relative;
+    top: -2px;
+    vertical-align: middle;
+    background-color: $radioButtonBgColor;
+    border: $radioButtonBorderWidth solid $radioButtonBorderColor;
+    border-radius: 50%;
+    cursor: pointer;
+    @include user-select(none);
+
+    &.checked {
+        &:after {
+            content: ' ';
+            display: block;
+            width: $radioButtonMarkSize;
+            height: $radioButtonMarkSize;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border-radius: 50%;
+            background-color: $radioButtonMarkColor;
+            transform: translateX(-50%) translateY(-50%);
+            transform-origin: top left;
+        }
+    }
+}

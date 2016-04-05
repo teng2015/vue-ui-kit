@@ -1,14 +1,14 @@
 module.exports = {
     template: require('./template.html'),
     props: {
-        isChecked: {
+        checked: {
             default: false
         }
     },
     methods: {
         toggleState: function () {
             var vm = this;
-            vm.isChecked = !vm.isChecked;
+            vm.checked = !vm.checked;
         }
     }
 };

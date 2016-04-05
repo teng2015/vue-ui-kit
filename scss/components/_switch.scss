@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-$switcherWidth: 60px;
-$switcherHeight: 24px;
+$switchWidth: 60px;
+$switchHeight: 24px;
 
 $handlerWidth: 16px;
 $handlerHeight: 16px;
@@ -12,17 +12,17 @@ $negativeColor: $grey;
 
 $borderWidth: 1px;
 
-$trackWidth: 2 * $switcherWidth - $switcherHeight - 2 * $borderWidth;
+$trackWidth: 2 * $switchWidth - $switchHeight - 2 * $borderWidth;
 
 $textFontSize: 12px;
 
-.switcher {
+.switch {
     display: inline-block;
-    width: $switcherWidth;
-    height: $switcherHeight;
+    width: $switchWidth;
+    height: $switchHeight;
     position: relative;
     vertical-align: middle;
-    border-radius: $switcherHeight / 2;
+    border-radius: $switchHeight / 2;
     transition: all 400ms;
     cursor: pointer;
     overflow: hidden;
@@ -39,7 +39,7 @@ $textFontSize: 12px;
         background-color: $negativeColor;
         border: 1px solid $negativeColor - 15;
         .track {
-            left: -$trackWidth + $switcherWidth - 2 * $borderWidth;
+            left: -$trackWidth + $switchWidth - 2 * $borderWidth;
         }
         .handler {
             border: 1px solid $negativeColor - 15;
@@ -48,8 +48,8 @@ $textFontSize: 12px;
     }
     .track {
         width: $trackWidth;
-        height: $switcherHeight - 2 * $borderWidth;
-        line-height: $switcherHeight - 2 * $borderWidth;
+        height: $switchHeight - 2 * $borderWidth;
+        line-height: $switchHeight - 2 * $borderWidth;
         position: absolute;
         left: 0px;
         transition: all 300ms;
@@ -72,8 +72,8 @@ $textFontSize: 12px;
     }
     .text {
        width: ($trackWidth - $handlerWidth) / 2;
-       height: $switcherHeight - 2 * $borderWidth;
-       line-height: $switcherHeight - 2 * $borderWidth;
+       height: $switchHeight - 2 * $borderWidth;
+       line-height: $switchHeight - 2 * $borderWidth;
        position: absolute;
        color: #fff;
        text-align: center;

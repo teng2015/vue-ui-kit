@@ -1,0 +1,12 @@
+<div class="radio-demo-container">
+    <c-radio-group :checked-value.sync="checkedSocialMedia">
+        <c-radio-button value="facebook"></c-radio-button> Facebook
+        <c-radio-button value="twitter"></c-radio-button> Twitter
+        <c-radio-button value="linkedin"></c-radio-button> LinkedIn
+        <c-radio-button value="github"></c-radio-button> Github
+    </c-radio-group>
+    
+    <br>
+    
+    <p>The checked value is: {{ checkedSocialMedia }}</p>
+</div>

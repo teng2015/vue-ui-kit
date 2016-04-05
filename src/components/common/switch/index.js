@@ -5,7 +5,7 @@ module.exports = {
             type: Array,
             default: ['','']
         },
-        isActive: {
+        active: {
             default: false
         }
     }

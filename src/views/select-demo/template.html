@@ -1,0 +1,8 @@
+<c-select v-if="showFirst" :options="tools" :selected-option.sync="selectedTool" text-field="name" placeholder="Select A Tool"></c-select>
+
+<br><br>
+
+<c-select :options="languages" :selected-option.sync="selectedLanguage" placeholder="Select A Language"></c-select>
+
+<p>You have selected:</p>
+<p>{{ selectedTool.name }} <i v-if="selectedTool.name && selectedLanguage">&</i> {{ selectedLanguage }}</p>

@@ -1,0 +1,13 @@
+<div class="switch-demo-container">
+    <p>Switch is a bit similar to checkbox.</p>
+
+    <p>Click on a switch to change its state.</p>
+
+    <div>
+        <c-switch :labels="['ON','OFF']" :active.sync="value1"></c-switch> {{ value1 }}
+    </div>
+
+    <div>
+        <c-switch :labels="['YES','NO']" :active.sync="value2"></c-switch> {{ value2 }}
+    </div>
+</div>

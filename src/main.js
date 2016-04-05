@@ -21,8 +21,10 @@ Vue.component('l-content', require('./components/layout/content'));
 
 // common components
 Vue.component('c-checkbox', require('./components/common/checkbox'));
-Vue.component('c-selectbox', require('./components/common/selectbox'));
-Vue.component('c-switcher', require('./components/common/switcher'));
+Vue.component('c-radio-button', require('./components/common/radio-button'));
+Vue.component('c-radio-group', require('./components/common/radio-group'));
+Vue.component('c-select', require('./components/common/select'));
+Vue.component('c-switch', require('./components/common/switch'));
 
 // global directives
 
@@ -36,14 +38,17 @@ Vue.filter('percentageFormatter', require('./filters/percentageFormatter'));
 
 
 // views - use async components to divide the app into smaller chunks
-Vue.component('v-checkboxDemo', function (resolve) {
+Vue.component('v-checkbox-demo', function (resolve) {
     require(['./views/checkbox-demo'], resolve);
 });
-Vue.component('v-selectboxDemo', function (resolve) {
-    require(['./views/selectbox-demo'], resolve);
+Vue.component('v-radio-button-demo', function (resolve) {
+    require(['./views/radio-button-demo'], resolve);
 });
-Vue.component('v-switcherDemo', function (resolve) {
-    require(['./views/switcher-demo'], resolve);
+Vue.component('v-select-demo', function (resolve) {
+    require(['./views/select-demo'], resolve);
+});
+Vue.component('v-switch-demo', function (resolve) {
+    require(['./views/switch-demo'], resolve);
 });
 
 // app constructor
@@ -57,13 +62,16 @@ var router = new VueRouter({
 
 router.map({
     '/checkbox': {
-        component: Vue.component('v-checkboxDemo')
+        component: Vue.component('v-checkbox-demo')
     },
-    '/selectbox': {
-        component: Vue.component('v-selectboxDemo')    
+    '/radio-button': {
+        component: Vue.component('v-radio-button-demo')    
     },
-    '/switcher': {
-        component: Vue.component('v-switcherDemo')
+    '/select': {
+        component: Vue.component('v-select-demo')    
+    },
+    '/switch': {
+        component: Vue.component('v-switch-demo')
     }
 });
 

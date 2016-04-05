@@ -3,16 +3,16 @@
 $checkboxWidth: 20px;
 $checkboxHeight: 20px;
 
-$bgColor: #fff;
+$checkboxBgColor: #fff;
 
-$borderWidth: 1px;
-$borderColor: $grey;
-$borderRadius: 2px;
+$checkboxBorderWidth: 1px;
+$checkboxBorderColor: $grey;
+$checkboxBorderRadius: 2px;
 
-$checkmarkWidth: 2px;
-$checkmarkSize: 10px;
-$checkmarkOffsetY: 2px;
-$checkmarkColor: $green;
+$checkboxMarkWidth: 2px;
+$checkboxMarkSize: 10px;
+$checkboxMarkOffsetY: 2px;
+$checkboxMarkColor: $green;
 
 .checkbox {
     display: inline-block;
@@ -21,9 +21,9 @@ $checkmarkColor: $green;
     position: relative;
     top: -2px;
     vertical-align: middle;
-    background-color: #fff;
-    border: $borderWidth solid $borderColor;
-    border-radius: $borderRadius;
+    background-color: checkboxBgColor;
+    border: $checkboxBorderWidth solid $checkboxBorderColor;
+    border-radius: $checkboxBorderRadius;
     cursor: pointer;
     @include user-select(none);
 
@@ -31,14 +31,14 @@ $checkmarkColor: $green;
         &:after {
             content: ' ';
             display: block;
-            width: $checkmarkSize / 2;
-            height: $checkmarkSize;
-            border: solid $checkmarkColor;
-            border-width: 0 $checkmarkWidth $checkmarkWidth 0;
+            width: $checkboxMarkSize / 2;
+            height: $checkboxMarkSize;
+            border: solid $checkboxMarkColor;
+            border-width: 0 $checkboxMarkWidth $checkboxMarkWidth 0;
             position: absolute;
             left: 50%;
             top: 50%;
-            margin-top: - $checkmarkOffsetY;
+            margin-top: - $checkboxMarkOffsetY;
             transform: rotate(45deg) translateX(-50%) translateY(-50%);
             transform-origin: top left;
         }
