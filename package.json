@@ -9,7 +9,7 @@
   "author": "Chris Pan",
   "license": "MIT",
   "scripts": {
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.dev.conf.js --inline --hot"
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.dev.config.js --inline --hot"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",

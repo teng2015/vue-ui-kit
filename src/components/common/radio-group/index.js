@@ -1,7 +1,13 @@
 module.exports = {
     template: require('./template.html'),
     props: {
-        checkedValue: undefined 
+        checkedValue: {
+            required: true
+        }
+    },
+    ready: function () {
+        var vm = this;
+        vm.$broadcast('checked-value-changed', vm.checkedValue);
     },
     events: {
         'radio-button-clicked': function (val) {
