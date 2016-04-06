@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.grid-row {
+    height: 36px;
+    line-height: 36px;
+    margin-bottom: 20px;
+}
+
+
+@for $i from 1 through 4 {
+    .grid-row > div:nth-child(#{$i}) {
+        text-align: center;
+        color: #fff;
+        background-color: $green - $i * 20;
+    }
+}

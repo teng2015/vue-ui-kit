@@ -41,6 +41,9 @@ Vue.filter('percentageFormatter', require('./filters/percentageFormatter'));
 Vue.component('v-checkbox-demo', function (resolve) {
     require(['./views/checkbox-demo'], resolve);
 });
+Vue.component('v-grid-demo', function (resolve) {
+    require(['./views/grid-demo'], resolve);
+});
 Vue.component('v-radio-button-demo', function (resolve) {
     require(['./views/radio-button-demo'], resolve);
 });
@@ -63,6 +66,9 @@ var router = new VueRouter({
 router.map({
     '/checkbox': {
         component: Vue.component('v-checkbox-demo')
+    },
+    '/grid': {
+        component: Vue.component('v-grid-demo')    
     },
     '/radio-button': {
         component: Vue.component('v-radio-button-demo')    
