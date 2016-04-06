@@ -10,7 +10,7 @@ $contentBgColor: #fff;
     width: calc(100% - #{$contentPosLeft});
     height: calc(100vh - #{$contentPosTop});
     padding: $contentPadding;
-    position: absolute;
+    position: fixed;
     top: $contentPosTop;
     left: $contentPosLeft;
     background-color: $contentBgColor;

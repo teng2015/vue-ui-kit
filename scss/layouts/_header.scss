@@ -10,7 +10,7 @@ $logoWidth: 200px;
 .header {
     width: $headerWidth;
     height: $headerHeight;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: $headerBgColor;

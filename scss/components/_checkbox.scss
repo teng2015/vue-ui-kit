@@ -21,7 +21,7 @@ $checkboxMarkColor: $green;
     position: relative;
     top: -2px;
     vertical-align: middle;
-    background-color: checkboxBgColor;
+    background-color: $checkboxBgColor;
     border: $checkboxBorderWidth solid $checkboxBorderColor;
     border-radius: $checkboxBorderRadius;
     cursor: pointer;

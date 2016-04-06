@@ -20,10 +20,11 @@ $navItemFontSize: 14px;
 .sidebar {
     width: $sidebarWidth;
     height: calc(100vh - #{$sidebarPosTop});
-    position: absolute;
+    position: fixed;
     top: $sidebarPosTop;
     left: 0;
     background-color: $sidebarBgColor;
+    overflow: auto;
     nav {
         ul {
             margin: 0;
