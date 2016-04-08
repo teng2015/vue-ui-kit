@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+$btnFontSize: 14px;
+$btnPadding: 5px 10px;
+$btnBorder: none;
+$btnBorderRadius: 2px;
+
+$btnDefaultNormalColor: rgba(0,0,0,.8);
+$btnDefaultNormalBgColor: #eee;
+$btnDefaultHoverColor: rgba(0,0,0,.8);
+$btnDefaultHoverBgColor: #ddd;
+$btnDefaultActiveColor: rgba(0,0,0,.8);
+$btnDefaultActiveBgColor: #ccc;
+
+$btnPrimaryNormalColor: #fff;
+$btnPrimaryNormalBgColor: $blue;
+$btnPrimaryHoverColor: #fff;
+$btnPrimaryHoverBgColor: $blue - 20;
+$btnPrimaryActiveColor: #fff;
+$btnPrimaryActiveBgColor: $blue - 40;
+
+$btnSuccessNormalColor: #fff;
+$btnSuccessNormalBgColor: $green;
+$btnSuccessHoverColor: #fff;
+$btnSuccessHoverBgColor: $green - 20;
+$btnSuccessActiveColor: #fff;
+$btnSuccessActiveBgColor: $green - 40;
+
+$btnDangerNormalColor: #fff;
+$btnDangerNormalBgColor: $red;
+$btnDangerHoverColor: #fff;
+$btnDangerHoverBgColor: $red - 20;
+$btnDangerActiveColor: #fff;
+$btnDangerActiveBgColor: $red - 40;
+
+$btnDisabledNormalColor: default;
+$btnDisabledNormalBgColor: default;
+
+.btn {
+    display: inline-block;
+    padding: $btnPadding;
+    border: $btnBorder;
+    border-radius: $btnBorderRadius;
+    line-height: 1;
+    font-size: $btnFontSize;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    @include user-select(none);
+    cursor: pointer;
+}
+
+.btn-default {
+    color: $btnDefaultNormalColor;
+    background-color: $btnDefaultNormalBgColor;
+    &:hover {
+        color: $btnDefaultHoverColor;
+        background-color: $btnDefaultHoverBgColor;
+    }
+    &:active {
+        color: $btnDefaultActiveColor;
+        background-color: $btnDefaultActiveBgColor;
+    }
+}
+
+.btn-primary {
+    color: $btnPrimaryNormalColor;
+    background-color: $btnPrimaryNormalBgColor;
+    &:hover {
+        color: $btnPrimaryHoverColor;
+        background-color: $btnPrimaryHoverBgColor;
+    }
+    &:active {
+        color: $btnPrimaryActiveColor;
+        background-color: $btnPrimaryActiveBgColor;
+    }
+}
+
+.btn-success {
+    color: $btnSuccessNormalColor;
+    background-color: $btnSuccessNormalBgColor;
+    &:hover {
+        color: $btnSuccessHoverColor;
+        background-color: $btnSuccessHoverBgColor;
+    }
+    &:active {
+        color: $btnSuccessActiveColor;
+        background-color: $btnSuccessActiveBgColor;
+    }
+}
+
+.btn-danger {
+    color: $btnDangerNormalColor;
+    background-color: $btnDangerNormalBgColor;
+    &:hover {
+        color: $btnDangerHoverColor;
+        background-color: $btnDangerHoverBgColor;
+    }
+    &:active {
+        color: $btnDangerActiveColor;
+        background-color: $btnDangerActiveBgColor;
+    }
+}
+
+.btn-disabled {
+    cursor: not-allowed !important;
+    color: $btnDisabledNormalColor;
+    background-color: $btnDisabledNormalBgColor;
+}

@@ -38,6 +38,9 @@ Vue.filter('percentageFormatter', require('./filters/percentageFormatter'));
 
 
 // views - use async components to divide the app into smaller chunks
+Vue.component('v-button-demo', function (resolve) {
+    require(['./views/button-demo'], resolve);
+});
 Vue.component('v-checkbox-demo', function (resolve) {
     require(['./views/checkbox-demo'], resolve);
 });
@@ -64,6 +67,9 @@ var router = new VueRouter({
 });
 
 router.map({
+    '/button': {
+        component: Vue.component('v-button-demo')    
+    },
     '/checkbox': {
         component: Vue.component('v-checkbox-demo')
     },
